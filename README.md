@@ -16,7 +16,7 @@ A UML model can be viewed as a series of diagrams containing standard symbols.  
 However, no initial familiarity with UML is required - the meaning of the symbols in the diagrams will become obvious from the text.
 
 ## Location
-Taking as an example the production of something we might describe as ìa crop of barleyî, data that will affect that process is often not directly, or uniquely related to it.  For example:
+Taking as an example the production of something we might describe as ‚Äúa crop of barley‚Äù, data that will affect that process is often not directly, or uniquely related to it.  For example:
 - in spatial terms, operations and observations may relate to an area which intersects with that of the crop, but is not coterminous with it, 
 - in temporal terms, the growth of the crop will be affected by soil type, and previous cropping.
 -   
@@ -31,6 +31,6 @@ In each case the precision of the decimal nummber needs to be limited.  One x 10
 
 There is little opportunity for crop production on the anti-meridian (-180 and 180 longitude), or at the poles (-90 and 90 latitude), so locations can be set in a two-dimensional space, although adjustment for latitude will need to be applied when calculating horizontal distances.
 
-A number of geographical information systems give three co-ordinates for a point ñ longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
+A number of geographical information systems give three co-ordinates for a point ‚Äì longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
 
 ![Point and the types it depends on](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point.iuml)
