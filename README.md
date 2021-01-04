@@ -35,4 +35,6 @@ There is little opportunity for crop production on the anti-meridian (-180 and 1
 
 A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
 
+![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point.puml)
+
 
