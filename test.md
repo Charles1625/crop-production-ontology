@@ -4,5 +4,6 @@ Term
 
 : definition
 
+|Properties|  |
 |--------|---------|
-|Charles |02 |
+|Latitude |The y-co-ordinate of the Point |
