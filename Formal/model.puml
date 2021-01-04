@@ -1,0 +1,10 @@
+@startuml
+hide circle
+class Point {
+  Latitude : LatitudeType
+  Longitude : LongitudeType
+  DistanceFrom(point : Point)
+}
+class LatitudeType <<dataType>>
+class Longitudetype <<dataType>>
+@enduml

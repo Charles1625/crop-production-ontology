@@ -2,7 +2,7 @@
 As for many domains, there will presently be a need for large datasets (Big Data) to assist the development of artificial intelligence (AI) based solutions for crop production.  Data in this domain currently exists in a wide range of formats, including those managed by a number of different applications in use by farmers.  The first step in building the necessary datasets will be to agree a standard ontology.  The challenge is to create a common language about crop production which can be used in a wide variety of situations, including those which might develop in the future.  
 
 The output of this project will be:
-- A Dictionary describing things involved in crop production and how they relate to each other.
+- A Formal Model describing things involved in crop production and how they relate to each other.
 - A machine readable format so that datasets can be combined.  This will be in the form of a JavaScript Object Notation (JSON) Schema.
 
 The sharing of this project through GitHub, allows collaboration between domain experts (e.g. farmers, agronomists, crop scientists) and data scientists who may raise Issues, or may make a more hands-on contribution.  
@@ -26,12 +26,18 @@ However, the relationship between the crop and all these factors can be establis
 
 ### Point
 The simplest kind of location is a point on the surface of the earth.  Point is defined with two Properties, Latitude and Longitude.  
+>Point is an example of a Class, in the sense that it is a "class of things", there being either a finite, or an infinite number of "things in the class".  Classes are the key nodes in this model.
+
 
 These properties need to be of specific types: LatitudeType is defined as a decimal number between -90 and 90 and LongituedType as a decimal number between -180 and 180. 
 
 In each case the precision of the decimal nummber needs to be limited.  One x 10<sup>-1</sup> degree of longitude at the equator and of latitude anywhere on the globe is in the order of one centimetre, so seven decimal places should be adequate.
 
 There is little opportunity for crop production on the anti-meridian (-180 and 180 longitude), or at the poles (-90 and 90 latitude), so locations can be set in a two-dimensional space, although adjustment for latitude will need to be applied when calculating horizontal distances.
+This will be a Method of Point which takes as a parameter another Point.
+>In this UML model, Classes will only be given Methods where it is necessary (1) to acknowledge that it is required in order to be able adequately to process the data 
+>and (2) to confirm that it can be performed using the Properties of the Class and of any Class, or Type in the parameter list.
+>The list of Methods for any Class is not exhaustive.
 
 A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
 
