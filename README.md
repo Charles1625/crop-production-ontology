@@ -3,9 +3,11 @@ As for many domains, there will presently be a need for large datasets (Big Data
 
 The output of this project will be:
 - A Dictionary describing things involved in crop production and how they relate to each other.
-- A machine readable format so that datasets can be combined.  Technically, this will be a JavaScript Object Notation (JSON) schema.
+- A machine readable format so that datasets can be combined.  This will be in the form of a JavaScript Object Notation (JSON) Schema.
 
-The sharing of this project through GitHub, allows collaboration between domain experts (e.g. farmers, agronomists, crop scientists) and data scientists who may raise Issues, or may make a more hands-on contribution.  (Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  Additionally, [PlantUML](https://plantuml.com/) is needed to modify, or contribute UML diagrams.)
+The sharing of this project through GitHub, allows collaboration between domain experts (e.g. farmers, agronomists, crop scientists) and data scientists who may raise Issues, or may make a more hands-on contribution.  
+
+>Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  Additionally, [PlantUML](https://plantuml.com/) is needed to modify, or contribute UML diagrams.
 
 Continue reading for a discussion of the rationale behind the terms and definitions chose for the Dictionary.
 
@@ -13,7 +15,7 @@ Continue reading for a discussion of the rationale behind the terms and definiti
 The Universal Modeling Language (UML) is a concise and precise means of documenting semantics. 
 A UML model can be viewed as a series of diagrams containing standard symbols.  For this ontology one type of UML diagram, the UML Class Diagram, is used to show the relationship between the terms defined in the Dictionary.
 
-However, no initial familiarity with UML is required - the meaning of the symbols in the diagrams will become obvious from the text.
+>The meaning of the symbols in the diagrams will mostly become obvious from the text.  Any explanation required will be in paragraphs like this.
 
 ## Location
 Taking as an example the production of something we might describe as “a crop of barley”, data that will affect that process is often not directly, or uniquely related to it.  For example:
@@ -34,4 +36,5 @@ There is little opportunity for crop production on the anti-meridian (-180 and 1
 A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
 
 ![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point.puml)
+
 
