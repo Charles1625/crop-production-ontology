@@ -1,5 +1,5 @@
 # Locations
-Taking as an example the production of something we might describe as “a crop of barley”, data that will affect that process is often not directly, or uniquely related to it.  For example:
+Taking as an example the production of something we might describe as â€œa crop of barleyâ€, data that will affect that process is often not directly, or uniquely related to it.  For example:
 - in spatial terms, operations and observations may relate to an area which intersects with that of the crop, but is not coterminous with it, 
 - in temporal terms, the growth of the crop will be affected by soil type, and previous cropping.
 -   
@@ -20,9 +20,8 @@ This will be a Method of Point which takes as a parameter another Point.
 >and (2) to confirm that it can be performed using the Properties of the Class and of any Class, or Type in the parameter list.
 >The list of Methods for any Class is not exhaustive.
 
-A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
+A number of geographical information systems give three co-ordinates for a point â€“ longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
 
-![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://github.com/Charles1625/crop-production-ontology/raw/main/uml/point.puml)
 
 *Figure 1 - The Point Class and the Types it depends on*
 ## Path
