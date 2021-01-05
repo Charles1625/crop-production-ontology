@@ -30,7 +30,7 @@ A Path can be defined as of an ordered list of two or more Points.
 The use of a Path in this domain is limited, but might be of value for an observation made along a transect. 
 It is possible to compute the Length of a Path from its set of Points. 
 
-![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/path.puml)
+![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/path1.puml)
 
 *Figure 2 - Path Class*
 
