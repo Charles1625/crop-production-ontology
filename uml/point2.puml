@@ -3,7 +3,7 @@ hide circle
 class Point {
   Latitude : LatitudeType
   Longitude : LongitudeType
-  DistanceFrom(point : Point)
+  DistanceFrom(pt : Point)
 }
 class LatitudeType <<dataType>>
 class Longitudetype <<dataType>>
