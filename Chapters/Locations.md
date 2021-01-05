@@ -22,7 +22,7 @@ This will be a Method of Point which takes as a parameter another Point.
 
 A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
 
-![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://github.com/Charles1625/crop-production-ontology/raw/main/uml/point.puml)
+![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point2.puml)
 
 *Figure 1 - The Point Class and the Types it depends on*
 ## Path
@@ -30,7 +30,7 @@ A Path can be defined as of an ordered list of two or more Points.
 The use of a Path in this domain is limited, but might be of value for an observation made along a transect. 
 It is possible to compute the Length of a Path from its set of Points. 
 
-![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/path1.puml)
+![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/path2.puml)
 
 *Figure 2 - Path Class*
 
@@ -44,5 +44,5 @@ Tracing a series of point could result in crossed lines, e.g.Figure 3.
 
 Whilst mathematicians are happy to treat this as a polygon, it will be inconvenient in this domain.
 
-![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/polygon.puml)
+![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/polygon2.puml)
 *Figure 4 - Polygon Class*
