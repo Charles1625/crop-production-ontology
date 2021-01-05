@@ -15,7 +15,7 @@ A series of explanatory chapters are being written (listed below) which discuss 
 These include UML Class Diagrams which formally define the relationships between things while
 the text explains how these diagrams were arrived at.
 Conceptually, the Model is a single diagram, but, for convenience, it is not presented as such. 
-The terms used in the diagrams are fully defined in a separate document, the [Model Documentation](https://github.com/Charles1625/crop-production-ontology/raw/main/Model/Documentation.md).
+The terms used in the diagrams are fully defined in a separate document, the [Model Documentation](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/Documentation.md).
 
 >The meaning of the symbols in the diagrams will mostly become obvious from the text.  Any explanation required will be in paragraphs like this.
 
