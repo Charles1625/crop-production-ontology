@@ -22,7 +22,7 @@ This will be a Method of Point which takes as a parameter another Point.
 
 A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
 
-![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://github.com/Charles1625/crop-production-ontology/raw/main/uml/point.puml)
+![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://github.com/Charles1625/crop-production-ontology/raw/main/uml/point1.puml)
 
 *Figure 1 - The Point Class and the Types it depends on*
 ## Path
