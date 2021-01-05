@@ -1,10 +1,12 @@
 @startuml
 hide circle
+class Path { 
+Length() 
+} 
 class Point {
   Latitude : LatitudeType
   Longitude : LongitudeType
   DistanceFrom(point : Point)
 }
-class LatitudeType <<dataType>>
-class Longitudetype <<dataType>>
+Path o-- "2..* {ordered}" Point : > has
 @enduml

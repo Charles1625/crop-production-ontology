@@ -1,0 +1,25 @@
+@startuml
+hide circle
+
+class Polygon { 
+Area() : number
+Intersection(polygon: Polygon) : Polygon
+Contains(point : Point)  : boolean
+} 
+
+class Point 
+'A point in a rectangle representing an Equirectangular projection of the Earth's surface.
+{
+  Latitude : LatitudeType//the y-coordinate of the Point
+  Longitude : LongitudeType//the x-co-ordinate of the Point
+  DistanceFrom(point : Point)
+}
+
+Polygon o-- "3..* {ordered} vertex" Point : > has
+note right on link
+{no straight line between any two consecutive points 
+is allowed to cross any other straight line between 
+two consecutive points 
+or between the first point and the last point}
+end note
+@enduml

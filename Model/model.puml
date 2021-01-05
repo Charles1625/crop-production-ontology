@@ -1,0 +1,55 @@
+@startuml
+hide circle
+
+class Path { 
+Length() 
+'Sum of the lengths of the straight lines joining consecutive pairs of Points.
+} 
+
+class Point 
+'A point in a rectangle representing an Equirectangular projection of the Earth's surface.
+{
+  Latitude : LatitudeType
+  'the y-coordinate of the Point
+  Longitude : LongitudeType
+  'the x-coordinate of the Point
+  DistanceFrom(point : Point)
+  'The actual distance on the Earth's surface between this point and the given point.
+}
+
+class Polygon 
+'A non-self-intersecting polygon on the Earth's surface.
+{ 
+Area() : number
+'the area of this Polygon
+Intersection(polygon: Polygon) : Polygon
+'a Polygon, if any, that represents the overlapping of this Polygon and the given Polygon
+Contains(point : Point)  : boolean
+'True if this Polygon contains the given Point.|
+|Aggregation| |
+} 
+
+class Point 
+'A point in a rectangle representing an Equirectangular projection of the Earth's surface.
+{
+  Latitude : LatitudeType//the y-coordinate of the Point
+  Longitude : LongitudeType//the x-co-ordinate of the Point
+  DistanceFrom(point : Point)
+}
+
+class LatitudeType <<dataType>>
+'A decimal number between -90 and 90 with a precision of no more than 7.
+
+class Longitudetype <<dataType>>
+'A decimal number between -180 and 180 with a precision of no more than 7.
+
+Path o--> "2..* {ordered}" Point : has
+
+Polygon o-- "3..* {ordered} vertex" Point : > has
+note right on link
+{no straight line between any two consecutive points 
+is allowed to cross any other straight line between 
+two consecutive points 
+or between the first point and the last point}
+end note
+@enduml
