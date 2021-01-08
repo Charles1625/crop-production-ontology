@@ -20,10 +20,10 @@ or between the first point and the last point}
 end note
 !endif
 
-!if %variable_exists("$included-polygon")
+!if %variable_exists("$included_polygon")
 Polygon <|-- IncludedPolygon
 !endif
 
-!if %variable_exists("$excluded-polygon")
+!if %variable_exists("$excluded_polygon")
 Polygon <|-- ExcludedPolygon
 !endif
