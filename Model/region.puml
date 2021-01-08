@@ -12,6 +12,6 @@ Contains(location : Location) : boolean
 'True if the given Location is contained by this Region.
 }
 
-!if variable_exists("$included-polygon")
+!if %variable_exists("$included-polygon")
 Region o-- "1..*" IncludedPolygon : > has
 !endif
