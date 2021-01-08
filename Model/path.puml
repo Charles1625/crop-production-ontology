@@ -1,4 +1,4 @@
-!path=true
+!$path=true
 
 class Path 
 'A path on the Earth's surface with some relation to crop production.
