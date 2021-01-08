@@ -1,7 +1,7 @@
 @startuml
 hide circle
-abstract RegionReference <<dataType>>
-'A reference for a region.
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/region-reference.puml
+
 class UKFieldReference <<dataType>> 
 'An example of a RegionReference
 {

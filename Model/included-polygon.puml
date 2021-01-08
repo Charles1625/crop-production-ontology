@@ -1,0 +1,8 @@
+!$included-polygon=true
+
+class IncludedPolygon
+'A polygon that is part of a Region (see also ExcludedPolygon)
+
+!if variable_exists("$excluded-polygon")
+IncludedPolygon o-- "0..*" ExcludedPolygon : > has
+!endif

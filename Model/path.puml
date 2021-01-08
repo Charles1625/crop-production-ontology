@@ -1,11 +1,12 @@
-@startuml
-hide circle
+!path=true
+
 class Path 
 'A path on the Earth's surface with some relation to crop production.
 { 
 Length() 
 'Sum of the lengths of the straight lines joining consecutive pairs of Points.
 } 
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point2.puml
+
+!if %variable_exists("$point")
 Path o-- "2..* {ordered}" Point : > has
-@enduml
+!endif

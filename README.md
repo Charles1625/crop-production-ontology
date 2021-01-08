@@ -11,7 +11,7 @@ The output of this project will be:
 - A Model based on the Unified Modeling Language (UML), formally describing things involved in crop production and how they relate to each other.
 - A machine readable Schema based on the Model, against which datasets can be standardised so that they can be combined (See [Introduction to Schema]().
 
-A series of explanatory chapters are being written (listed below) which discuss the rationale behind the Model. 
+A series of explanatory documents are being written (listed below) which discuss the rationale behind the Model. 
 These include UML Class Diagrams which formally define the relationships between things while
 the text explains how these diagrams were arrived at.
 Conceptually, the Model is a single diagram, but, for convenience, it is not presented as such. 

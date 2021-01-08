@@ -1,0 +1,16 @@
+!$location=true
+
+abstract Location
+'A location on the Earth's surface with some relation to crop production.
+
+!if %variable_exists("$point")
+Location <|-- Point
+!
+
+!if %variable_exisits("$path")
+Location <|-- Path
+!endif
+
+!if %variable_exisits("$region")
+Location <|-- Region
+!endif

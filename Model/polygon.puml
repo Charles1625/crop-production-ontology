@@ -1,6 +1,5 @@
-@startuml
-hide circle
-!startsub POLYGON
+
+!$polygon=true
 abstract Polygon { 
 A non-self-intersecting polygon on the Earth's surface with some relation to crop production.
 Area() : number
@@ -10,9 +9,8 @@ Intersection(polygon: Polygon) : Polygon
 Contains(point : Point)  : boolean
 'True if this Polygon contains the given Point.
 }
-!endsub
 
-!if %variable_exists("$point")
+if %variable_exists("$point")
 Polygon o-- "3..* {ordered} vertex" Point : > has
 note right on link
 {no straight line between any two consecutive points 
@@ -21,4 +19,11 @@ two consecutive points
 or between the first point and the last point}
 end note
 !endif
-@enduml
+
+!if %variable_exists("$included-polygon")
+Polygon <|-- IncludedPolygon
+!endif
+
+!if %variable_exists("$excluded-polygon")
+Polygon <|-- ExcludedPolygon
+!endif

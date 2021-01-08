@@ -22,7 +22,7 @@ This will be a Method of Point which takes as a parameter another Point.
 
 A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude, but altitude seems to be an unnecessary overhead, given the role of location in this domain.
 
-![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point2.puml)
+![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/poing.puml)
 
 *Figure 1 - The Point Class and the Types it depends on*
 ## Path
@@ -30,7 +30,7 @@ A Path can be defined as an ordered list of two or more Points.
 The use of a Path in this domain is limited, but might be of value for an observation made along a transect. 
 It is possible to compute the Length of a Path from its set of Points. 
 
-![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/path2.puml)
+![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/path.puml)
 
 *Figure 2 - Path Class*
 
@@ -38,13 +38,13 @@ It is possible to compute the Length of a Path from its set of Points.
 By far the more common use of an ordered list of points will be a Polygon.  To turn a Path into the perimeter of a polygon only requires the last point in the ordered list to be joined to the first.
 Tracing a series of point could result in crossed lines, e.g.Figure 3.
 
-![Self intersecting polygon](https://raw.github.com/Charles1625/crop-production-ontology/main/images/self-intersecting-polygon.png)
+![Self intersecting polygon](https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/self-intersecting-polygon.png)
 
 *Figure3 - Self-intersecting polygon*
 
 Whilst mathematicians are happy to treat this as a polygon, it will be inconvenient in this domain.
 
-![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/polygon2.puml)
+![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/polygon.puml)
 
 *Figure 4 - Polygon Class*
 
@@ -53,7 +53,7 @@ A simple Polygon is not necessarily going to be sufficient to describe the kind 
  or on which operations, or observations are made.  Figure 5 illustrates the kind of complex situation that 
 can arise.
 
-![Complex field layout](https://raw.github.com/Charles1625/crop-production-ontology/main/images/field-layout.png)
+![Complex field layout](https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/field-layout.png)
 
 *Figure 5 - Complex field layout*
 
@@ -76,7 +76,7 @@ RegionReference type which acts as a generalization of any number of reference t
 Figure 6 shows 
 this abstract class with a possible specialization (opposite of generalization).
 
-![RegionReference](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/region-reference.puml)
+![RegionReference](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/region-reference.puml)
 
 *Figure 6 - Region Reference Abstract Type*
 
@@ -84,7 +84,7 @@ this abstract class with a possible specialization (opposite of generalization).
 >generalization - it has to be specialized, as exemplified in Figure 6 - there cannot be an actual instance 
 >of a RegionReference.
 
-![Region](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/region.puml)
+![Region](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/region.puml)
 
 >The Location Class referred to in the Contains Method is discussed below.
 
@@ -92,7 +92,7 @@ Aspects of crop production may relate to Point, Path, or Region and can be gener
 
 Figure 7 summarises what is understood about location.
 
-![Location](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/location.puml)
+![Location](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/location.puml)
 
 *Figure 7 - Location*
 
