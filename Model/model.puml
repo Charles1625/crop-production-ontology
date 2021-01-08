@@ -1,7 +1,9 @@
 @startuml
 hide circle
 
-class Path 
+@startsub PATH
+class Path
+'A path on the Earth's surface with some relation to crop production.
 { 
 Length() 
 'Sum of the lengths of the straight lines joining consecutive pairs of Points.

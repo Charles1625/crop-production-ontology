@@ -90,7 +90,7 @@ this abstract class with a possible specialization (opposite of generalization).
 
 Aspects of crop production may relate to Point, Path, or Region and can be generalized as Location.  
 
-Figure 7 summarises what we understand about location.
+Figure 7 summarises what is understood about location.
 
 ![Location](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/location.puml)
 
