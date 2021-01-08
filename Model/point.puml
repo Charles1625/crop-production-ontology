@@ -1,0 +1,11 @@
+!$point=true
+class Point 
+'A point in a rectangle representing an Equirectangular projection of the Earth's surface with some relation to crop production.
+{
+  Latitude : LatitudeType
+  'the y-coordinate of the Point
+  Longitude : LongitudeType
+  'the x-coordinate of the Point
+  DistanceFrom(point : Point)
+  'The actual distance on the Earth's surface between this point and the given point.
+}
