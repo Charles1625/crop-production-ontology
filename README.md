@@ -23,7 +23,7 @@ The sharing of this project through GitHub, allows collaboration between domain 
 
 >Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  Additionally, [PlantUML](https://plantuml.com/) is needed to modify, or contribute UML diagrams.
 
-- [Locations](https://github.com/Charles1625/crop-production-ontology/blob/main/Chapters/Locations.md)
+- [Locations](https://github.com/Charles1625/crop-production-ontology/blob/main/Locations/Locations.md)
 
 
 
