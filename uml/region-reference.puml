@@ -1,7 +1,10 @@
 @startuml
 hide circle
 abstract RegionReference <<dataType>>
-class UKFieldReference <<dataType>> {
+'A reference for a region.
+class UKFieldReference <<dataType>> 
+'An example of a RegionReference
+{
 OSParcelID : text
 FieldName : text
 FieldNo : number

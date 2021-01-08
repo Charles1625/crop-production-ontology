@@ -1,10 +1,6 @@
 @startuml
 hide circle
-abstract Polygon { 
-Area() : number
-Intersection(polygon: Polygon) : Polygon
-Contains(point : Point)  : boolean
-}
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/uml/polygon2.puml
 
 class Region {
 Reference : RegionReference

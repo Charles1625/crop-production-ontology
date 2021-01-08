@@ -2,18 +2,16 @@
 hide circle
 
 abstract Polygon { 
+A non-self-intersecting polygon on the Earth's surface with some relation to crop production.
 Area() : number
+'the area of this Polygon
 Intersection(polygon: Polygon) : Polygon
+'a Polygon, if any, that represents the overlapping of this Polygon and the given Polygon.
 Contains(point : Point)  : boolean
+'True if this Polygon contains the given Point.
 } 
 
-class Point 
-'A point in a rectangle representing an Equirectangular projection of the Earth's surface.
-{
-  Latitude : LatitudeType//the y-coordinate of the Point
-  Longitude : LongitudeType//the x-co-ordinate of the Point
-  DistanceFrom(point : Point)
-}
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point2.puml
 
 Polygon o-- "3..* {ordered} vertex" Point : > has
 note right on link
