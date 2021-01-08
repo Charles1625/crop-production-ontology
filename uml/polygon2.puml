@@ -1,6 +1,6 @@
 @startuml
 hide circle
- @startsub POLYGON
+!startsub POLYGON
 abstract Polygon { 
 A non-self-intersecting polygon on the Earth's surface with some relation to crop production.
 Area() : number
@@ -10,7 +10,7 @@ Intersection(polygon: Polygon) : Polygon
 Contains(point : Point)  : boolean
 'True if this Polygon contains the given Point.
 }
-@endsub
+!endsub
 
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point2.puml
 
