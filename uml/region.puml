@@ -1,6 +1,6 @@
 @startuml
 hide circle
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/uml/polygon2.puml
+!includesub https://raw.github.com/Charles1625/crop-production-ontology/main/uml/polygon2.puml!POLYGON
 
 class Region {
 Reference : RegionReference

@@ -26,7 +26,7 @@ A number of geographical information systems give three co-ordinates for a point
 
 *Figure 1 - The Point Class and the Types it depends on*
 ## Path
-A Path can be defined as of an ordered list of two or more Points. 
+A Path can be defined as an ordered list of two or more Points. 
 The use of a Path in this domain is limited, but might be of value for an observation made along a transect. 
 It is possible to compute the Length of a Path from its set of Points. 
 
