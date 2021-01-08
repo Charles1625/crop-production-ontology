@@ -12,8 +12,7 @@ Contains(point : Point)  : boolean
 }
 !endsub
 
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point2.puml
-
+!if %variable_exists("$point")
 Polygon o-- "3..* {ordered} vertex" Point : > has
 note right on link
 {no straight line between any two consecutive points 
@@ -21,4 +20,5 @@ is allowed to cross any other straight line between
 two consecutive points 
 or between the first point and the last point}
 end note
+!endif
 @enduml

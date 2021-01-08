@@ -1,6 +1,7 @@
 @startuml
 hide circle
 
+!$point=true
 class Point 
 'A point in a rectangle representing an Equirectangular projection of the Earth's surface with some relation to crop production.
 {
