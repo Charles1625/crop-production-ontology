@@ -7,10 +7,10 @@ abstract Location
 Location <|-- Point
 !
 
-!if %variable_exisits("$path")
+!if %variable_exists("$path")
 Location <|-- Path
 !endif
 
-!if %variable_exisits("$region")
+!if %variable_exists("$region")
 Location <|-- Region
 !endif
