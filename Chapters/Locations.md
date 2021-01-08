@@ -45,4 +45,59 @@ Tracing a series of point could result in crossed lines, e.g.Figure 3.
 Whilst mathematicians are happy to treat this as a polygon, it will be inconvenient in this domain.
 
 ![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/polygon2.puml)
+
 *Figure 4 - Polygon Class*
+
+## Region
+A simple Polygon is not necessarily going to be sufficient to describe the kind of region which a crop may occupy,
+ or on which operations, or observations are made.  Figure 5 illustrates the kind of complex situation that 
+can arise.
+
+![Complex field layout](https://raw.github.com/Charles1625/crop-production-ontology/main/images/field-layout.png)
+
+*Figure 5 - Complex field layout*
+
+The narrative for this map, involving five Polygons, might be:
+>The field is divided into two parts by a track.  In the larger part there are two areas where the crop failed to establish, but, in one of them, a small patch of crop did establish.
+>
+This collection of Polygons can be referred to as a Region and two types of Polygon are recognised, 
+an IncludedPolygon and an ExcludedPolygon.  An IncludedPolygon may, or may not 
+contain one, or more ExcludedPolygons.   
+A Region will contain one, or more IncludedPolygons and (indirectly) any Excluded Polygons contained by 
+those IncludedPolygons.
+>This is a simlar approach to that described in [sub-section 2.7.2 of the Oracle Spatial and Graph Developer’s Guide – “Polygon with a Hole”](https://docs.oracle.com/database/121/SPATL/polygon-hole.htm#SPATL520 ), except that it avoids the complications that would arise if the co-ordinates of a polygon were placed in the same list as those of its holes.
+
+In Figure 5, there are three IncludedPolygons of which one has two ExcludedPolygons.
+
+Regions will often need some sort of reference.  It is not known at this stage how many different types of 
+reference there will be, but a UK farmer, for example, might reference a field with an OS Parcel ID, a 
+traditional field name and possibly a number.  Region therefore has a Reference attribute with an abstract 
+RegionReference type which acts as a generalization of any number of reference types that are required.  
+Figure 6 shows 
+this abstract class with a possible specialization (opposite of generalization).
+
+![RegionReference](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/region-reference.puml)
+
+*Figure 6 - Region Reference Abstract Type*
+
+>RegionReference is referred to as "abstract" and its name italicised in the diagram, because it is only a
+>generalization - it has to be specialized, as exemplified in Figure 6 - there cannot be an actual instance 
+>of a RegionReference.
+
+![Region](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/region.puml)
+
+>The Location Class referred to in the Contains Method is discussed below.
+
+Aspects of crop production may relate to Point, Path, or Region and can be generalized as Location.  
+
+Figure 7 summarises what we understand about location.
+
+![Location](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/uml/location.puml)
+
+*Figure 7 - Location*
+
+
+
+
+
+

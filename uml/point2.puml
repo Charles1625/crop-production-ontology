@@ -1,10 +1,21 @@
 @startuml
 hide circle
-class Point {
+
+class Point 
+'A point in a rectangle representing an Equirectangular projection of the Earth's surface with some relation to crop production.
+{
   Latitude : LatitudeType
+  'the y-coordinate of the Point
   Longitude : LongitudeType
-  DistanceFrom(pt : Point)
+  'the x-coordinate of the Point
+  DistanceFrom(point : Point)
+  'The actual distance on the Earth's surface between this point and the given point.
 }
+
 class LatitudeType <<dataType>>
+'A decimal number between -90 and 90 with a precision of no more than 7.
+
 class Longitudetype <<dataType>>
+'A decimal number between -180 and 180 with a precision of no more than 7.
+
 @enduml

@@ -1,7 +1,7 @@
 @startuml
 hide circle
 
-class Polygon { 
+abstract Polygon { 
 Area() : number
 Intersection(polygon: Polygon) : Polygon
 Contains(point : Point)  : boolean

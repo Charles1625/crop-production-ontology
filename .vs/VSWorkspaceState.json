@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Chapters",
+    "\\images",
     "\\uml"
   ],
-  "SelectedNode": "\\test.md",
+  "SelectedNode": "\\uml\\region.puml",
   "PreviewInSolutionExplorer": false
 }

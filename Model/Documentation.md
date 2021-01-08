@@ -3,24 +3,64 @@
 Full definitions of all of the elements in the UML Model are provided here.
 The full Model is also provided in PlantUML (model.puml) for completeness.
 
+## ExcludedPolygon
+A Polygon (see "IncludedPolygon has ExcludedPolygon" aggregation).
+
+**Aggregated by**
+
+- IncludedPolygon
+
+**Generalization**
+- Polygon
+
+## IncludedPolygon
+A polygon that is part of a Region (see also ExcludedPolygon).
+
+|Aggregation| |
+|--------------|-------------|
+|IncludedPolygon has ExcludedPolygon|An IncludedPolygon may have any number of ExcludedPolygons, each of which exclude that part of it from the Region to which it belongs, but does not exclude part of any other IncludedPolygon of that Region.|
+
+**Aggregated by**
+-Region
+
+**Generalization**
+-Polygon
+
 ## LatitudeType 
 A decimal number between -90 and 90 with a precision of no more than 7.
+
+**Stereotype**
+
+dataType
+
+## *Location*
+A location on the Earth's surface with some relation to crop production.
+
+**Specializations**
+- Path
+- Point
+- Region
 
 ## LongitudeType 
 A decimal number between -180 and 180 with a precision of no more than 7.
 
+**Stereotype**
+
+dataType
+
 ## Path
-A path on the Earth's surface
+A path on the Earth's surface with some relation to crop production.
 |Method | |
 |--------|------|
 |Length() : number|Sum of the lengths of the straight lines joining consecutive pairs of Points.|
 
-*Aggregation**
-Path has Points
+|Aggregation| |
+|------------|------------|
+|Path has Points|A Path has an ordered set of Points
 
 
 ## Point 
-A point in a rectangle representing an Equirectangular projection of the Earth's surface.
+A point in a rectangle representing an Equirectangular projection of the Earth's surface with some relation to crop production.
 
 | Properties | |
 |------------|---------|
@@ -31,21 +71,47 @@ A point in a rectangle representing an Equirectangular projection of the Earth's
 |----------|----------|
 |DistanceFrom(point : Point) : number|The actual distance on the Earth's surface between this point and the given point.|
 
-**Aggregated**
-See:
+**Aggregated by**
 - Path
 - Polygon
 
-## Polygon
-A non-self-intersecting polygon on the Earth's surface.
+## *Polygon*
+A non-self-intersecting polygon on the Earth's surface with some relation to crop production.
 
 |Methods| |
 |-------|------|
 |Area() : number|the area of this Polygon|
-|Intersection(polygon : Polygon) : Polygon|
-a Polygon, if any, that represents the overlapping of this Polygon and the given Polygon.|
+|Intersection(polygon : Polygon) : Polygon|a Polygon, if any, that represents the overlapping of this Polygon and the given Polygon.|
 |Contains(point : Point) : boolean|True if this Polygon contains the given Point.|
 
-*Aggregation**
-|---------|--------|
-Polygon has Points
+|Aggregation| |
+|-------------|--------------|
+|Polygon has Points|A polygon has an ordered set of Points, such that no straight line between any two consecutive points is allowed to cross any other straight line between two consecutive points or between the first point and the last point.|
+
+**Specializations**
+- ExcludedPolygon
+- IncludedPolygon
+
+## Region
+A region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
+
+|Properties| |
+|--------|------|
+|Reference : RegionReference|A reference for the Region consisting of any number of parts of a variety of types.|
+
+Methods| |
+|---------|----------|
+|Area() : number|Total area covered by the Region|
+|Intersection(region : Region) : Region|The Region if any that represents the overlap between this Region and the given Region.|
+|Contains(location : Location) : boolean |True if the given Location is contained by this Region.|
+
+|Aggregation| |
+|-----------|------------|
+|Region has IncludedPolygons|A Region may have any number of IncludedPolygons|
+
+## *RegionReference*
+A reference for a region.
+
+**Stereotype**
+
+dataType

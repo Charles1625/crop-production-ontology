@@ -1,12 +1,12 @@
 @startuml
 hide circle
-class Path { 
+class Path 
+'A path on the Earth's surface with some relation to crop production.
+
+{ 
 Length() 
+'Sum of the lengths of the straight lines joining consecutive pairs of Points.
 } 
-class Point {
-  Latitude : LatitudeType
-  Longitude : LongitudeType
-  DistanceFrom(point : Point)
-}
+!https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point2.puml
 Path o-- "2..* {ordered}" Point : > has
 @enduml

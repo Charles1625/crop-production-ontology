@@ -1,7 +1,8 @@
 @startuml
 hide circle
 
-class Path { 
+class Path 
+{ 
 Length() 
 'Sum of the lengths of the straight lines joining consecutive pairs of Points.
 } 
@@ -28,14 +29,6 @@ Contains(point : Point)  : boolean
 'True if this Polygon contains the given Point.|
 |Aggregation| |
 } 
-
-class Point 
-'A point in a rectangle representing an Equirectangular projection of the Earth's surface.
-{
-  Latitude : LatitudeType//the y-coordinate of the Point
-  Longitude : LongitudeType//the x-co-ordinate of the Point
-  DistanceFrom(point : Point)
-}
 
 class LatitudeType <<dataType>>
 'A decimal number between -90 and 90 with a precision of no more than 7.

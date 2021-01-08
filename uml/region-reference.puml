@@ -1,0 +1,10 @@
+@startuml
+hide circle
+abstract RegionReference <<dataType>>
+class UKFieldReference <<dataType>> {
+OSParcelID : text
+FieldName : text
+FieldNo : number
+}
+RegionReference <|-- UKFieldReference
+@enduml
