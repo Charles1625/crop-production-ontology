@@ -10,7 +10,7 @@ Contains(point : Point)  : boolean
 'True if this Polygon contains the given Point.
 }
 
-if %variable_exists("$point")
+!if %variable_exists("$point")
 Polygon o-- "3..* {ordered} vertex" Point : > has
 note right on link
 {no straight line between any two consecutive points 
