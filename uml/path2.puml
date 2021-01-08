@@ -7,6 +7,6 @@ class Path
 Length() 
 'Sum of the lengths of the straight lines joining consecutive pairs of Points.
 } 
-!https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point2.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/uml/point2.puml
 Path o-- "2..* {ordered}" Point : > has
 @enduml
