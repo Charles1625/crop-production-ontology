@@ -1,0 +1,20 @@
+!$substance=true
+
+class Substance
+'A substance involved in crop production
+{
+Name : text
+'A product name for the Substance
+}
+
+!if %variable_exists("$compound")
+Substance "0..*" -- "0..*" Compound : > contains
+
+(Substance, Coumpound) .. Content
+class Content
+'Content of a particular chemical compound in a particular substance
+{
+Concentration : number
+'Concentration of the chemical compound in the substance
+}
+!endif

@@ -1,0 +1,7 @@
+!$compound=true
+
+class Compound
+'A chemical compound
+{
+Name : text
+}

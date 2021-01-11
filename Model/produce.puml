@@ -1,0 +1,12 @@
+!$produce=true
+
+class Produce
+'Produce of a crop
+{
+Species : text
+'The species of the producing crop
+Variety : text
+'The variety (cultivar) of the producing crop
+Part : text
+'The part of the plant (e.g.grain, or straw)
+}

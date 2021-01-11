@@ -1,0 +1,7 @@
+!$batch=true
+
+class Batch
+'A batch of material
+{
+Reference : text
+}
