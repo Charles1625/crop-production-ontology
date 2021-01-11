@@ -92,6 +92,7 @@ Aspects of crop production may relate to Point, Path, or Region and can be gener
 
 Figure 7 summarises what is understood about location.
 
+![Location](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/location.puml)
 
 *Figure 7 - Location*
 
