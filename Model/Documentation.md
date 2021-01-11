@@ -14,7 +14,7 @@ A batch of material.
 **Association**
 
 See:
-- Material
+- [Material](#material)
 
 ## Compound
 A chemical compound
@@ -26,13 +26,14 @@ A chemical compound
 **Association**
 
 See:
-- Substance
+- [Substance](#substance)
 
 ## Content
 The content of a particular chemical compound in a particular substance
 
 **Association Class for**
-Substance contains Compound
+
+[Substance](#substance) contains Compound
 
 |Property| |
 |-----------|-----------|
@@ -44,23 +45,23 @@ A Polygon (see "IncludedPolygon has ExcludedPolygon" aggregation).
 
 **Aggregated by**
 
-- IncludedPolygon
+- [IncludedPolygon](#includedpolygon)
 
 **Generalization**
-- Polygon
+- [Polygon](#polygon)
 
 ## IncludedPolygon
 A polygon that is part of a Region (see also ExcludedPolygon).
 
 |Aggregation| |
 |--------------|-------------|
-|IncludedPolygon has ExcludedPolygon|An IncludedPolygon may have any number of ExcludedPolygons, each of which exclude that part of it from the Region to which it belongs, but does not exclude part of any other IncludedPolygon of that Region.|
+|IncludedPolygon has [ExcludedPolygon](#excludedpolygon)|An IncludedPolygon may have any number of ExcludedPolygons, each of which exclude that part of it from the Region to which it belongs, but does not exclude part of any other IncludedPolygon of that Region.|
 
 **Aggregated by**
--Region
+-[Region](#region)
 
 **Generalization**
--Polygon
+-[Polygon](#polygon)
 
 ## LatitudeType 
 A decimal number between -90 and 90 with a precision of no more than 7.
@@ -73,9 +74,9 @@ dataType
 A location on the Earth's surface with some relation to crop production.
 
 **Specializations**
-- Path
-- Point
-- Region
+- [Path](#path)
+- [Point](#point)
+- [Region](#region)
 
 ## LongitudeType 
 A decimal number between -180 and 180 with a precision of no more than 7.
@@ -89,7 +90,7 @@ A kind of material.
 
 |Association| |
 |----------|------------|
-|Batch of Material|Any number of batches may be of a single material.|
+|[Batch](#batch) of Material|Any number of batches may be of a single material.|
 
 ## Path
 A path on the Earth's surface with some relation to crop production.
@@ -99,7 +100,7 @@ A path on the Earth's surface with some relation to crop production.
 
 |Aggregation| |
 |------------|------------|
-|Path has Points|A Path has an ordered set of Points
+|Path has [Point](#point)|A Path has an ordered set of Points
 
 
 ## Point 
@@ -107,16 +108,16 @@ A point in a rectangle representing an Equirectangular projection of the Earth's
 
 | Properties | |
 |------------|---------|
-|Latitude : LatitudeType |the y-coordinate of the Point|
-|Longitude : LongitudeType|the x-coordinate of the Point|
+|Latitude : [LatitudeType](#latitudetype) |the y-coordinate of the Point|
+|Longitude : [LongitudeType](#longitudetype)|the x-coordinate of the Point|
 
 | Method| |
 |----------|----------|
 |DistanceFrom(point : Point) : number|The actual distance on the Earth's surface between this point and the given point.|
 
 **Aggregated by**
-- Path
-- Polygon
+- [Path](#path)
+- [Polygon](#polygon)
 
 ## *Polygon*
 A non-self-intersecting polygon on the Earth's surface with some relation to crop production.
@@ -129,11 +130,11 @@ A non-self-intersecting polygon on the Earth's surface with some relation to cro
 
 |Aggregation| |
 |-------------|--------------|
-|Polygon has Points|A polygon has an ordered set of Points, such that no straight line between any two consecutive points is allowed to cross any other straight line between two consecutive points or between the first point and the last point.|
+|Polygon has [Point](#point)|A polygon has an ordered set of Points, such that no straight line between any two consecutive points is allowed to cross any other straight line between two consecutive points or between the first point and the last point.|
 
 **Specializations**
-- ExcludedPolygon
-- IncludedPolygon
+- [ExcludedPolygon](#excludedpolygon)
+- [IncludedPolygon](#includedpolygon)
 
 ## Produce
 The produce of a crop.
@@ -150,17 +151,17 @@ A region of the Earth's surface with some relation to crop production which may 
 
 |Properties| |
 |--------|------|
-|Reference : RegionReference|A reference for the Region consisting of any number of parts of a variety of types.|
+|Reference : [RegionReference](#regionreference)|A reference for the Region consisting of any number of parts of a variety of types.|
 
 Methods| |
 |---------|----------|
 |Area() : number|Total area covered by the Region|
 |Intersection(region : Region) : Region|The Region if any that represents the overlap between this Region and the given Region.|
-|Contains(location : Location) : boolean |True if the given Location is contained by this Region.|
+|Contains(location : [Location](#location) : boolean |True if the given Location is contained by this Region.|
 
 |Aggregation| |
 |-----------|------------|
-|Region has IncludedPolygons|A Region may have any number of IncludedPolygons|
+|Region has [IncludedPolygon](#includedpolygon)|A Region may have any number of IncludedPolygons|
 
 ## *RegionReference*
 A reference for a region.
@@ -179,7 +180,7 @@ A substance involved in crop production.
 
 |Association| |
 |-------------|-----------|
-|Substance contains Compound|A substance may contain a number of compounds.  A compound may be contained by a number of substances.|
+|Substance contains [Compound](#compound)|A substance may contain a number of compounds.  A compound may be contained by a number of substances.|
 
 ## UKFieldReference
-An example of a RegionReference.
+An example of a [RegionReference](#regionreference).
