@@ -10,7 +10,7 @@ Name : text
 !if %variable_exists("$compound")
 Substance "0..*" -- "0..*" Compound : > contains
 
-(Substance, Coumpound) .. Content
+(Substance, Compound) .. Content
 class Content
 'Content of a particular chemical compound in a particular substance
 {
