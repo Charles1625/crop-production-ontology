@@ -1,5 +1,5 @@
 @startuml
 hide circle
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/point.puml
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/lat-long.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/datatypes.puml
 @enduml

@@ -1,2 +1,0 @@
-abstract RegionReference <<dataType>>
-'A reference for a region.

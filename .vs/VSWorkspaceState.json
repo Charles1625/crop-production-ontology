@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Chapters",
-    "\\images",
-    "\\uml"
+    "\\Locations",
+    "\\Model"
   ],
-  "SelectedNode": "\\uml\\region.puml",
+  "SelectedNode": "\\Locations\\location.puml",
   "PreviewInSolutionExplorer": false
 }

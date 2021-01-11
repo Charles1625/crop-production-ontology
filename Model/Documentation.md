@@ -1,7 +1,43 @@
 # Documentation of the UML Model
 
-Full definitions of all of the elements in the UML Model are provided here.
-The full Model is also provided in PlantUML (model.puml) for completeness.
+Full definitions of all of the elements in the UML Model are provided here with Classes in alphabetical order.
+
+See [here](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/UML.md) for information on the formal definition of the Model.
+
+## Batch
+A batch of material.
+
+|Property| |
+|----------|----------|
+|Reference : text | A reference for the batch|
+
+**Association**
+
+See:
+- Material
+
+## Compound
+A chemical compound
+
+|Property| |
+|-----------|------------|
+|Name : text|Name of the compound|
+
+**Association**
+
+See:
+- Substance
+
+## Content
+The content of a particular chemical compound in a particular substance
+
+**Association Class for**
+Substance contains Compound
+
+|Property| |
+|-----------|-----------|
+|Concentration : number|The concentration of the chemical compound in the substance|
+
 
 ## ExcludedPolygon
 A Polygon (see "IncludedPolygon has ExcludedPolygon" aggregation).
@@ -48,6 +84,13 @@ A decimal number between -180 and 180 with a precision of no more than 7.
 
 dataType
 
+## *Material*
+A kind of material.
+
+|Association| |
+|----------|------------|
+|Batch of Material|Any number of batches may be of a single material.|
+
 ## Path
 A path on the Earth's surface with some relation to crop production.
 |Method | |
@@ -92,6 +135,16 @@ A non-self-intersecting polygon on the Earth's surface with some relation to cro
 - ExcludedPolygon
 - IncludedPolygon
 
+## Produce
+The produce of a crop.
+
+|Properties| |
+|-----------|------------|
+|Species : text|The species of the producing crop.|
+|Variety : text|The variety (cultivar) of the producing crop|
+|Part : text|The part of the plant (e.g. grain, or straw)|
+
+
 ## Region
 A region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
 
@@ -115,6 +168,18 @@ A reference for a region.
 **Stereotype**
 
 dataType
+
+## Substance
+
+A substance involved in crop production.
+
+|Property| |
+|----------|-------|
+|ProductName : text|A product name for the Substance.|
+
+|Association| |
+|-------------|-----------|
+|Substance contains Compound|A substance may contain a number of compounds.  A compound may be contained by a number of substances.|
 
 ## UKFieldReference
 An example of a RegionReference.
