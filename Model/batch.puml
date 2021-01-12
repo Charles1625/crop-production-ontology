@@ -5,3 +5,8 @@ class Batch
 {
 Reference : text
 }
+
+!if %variable_exists("$transfer")
+Batch "1" -- "0..* Output" Transfer : < from
+Batch "1" -- "0..* Input" Transfer : < to
+!endif

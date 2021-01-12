@@ -1,0 +1,8 @@
+!$transfer=true
+
+class Transfer
+'Transfer of crop from one batch to another
+{
+Quantity : number
+'Quantity transferred
+}
