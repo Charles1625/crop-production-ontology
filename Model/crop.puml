@@ -12,5 +12,5 @@ Part : text
 }
 
 !if %variable_exists("$batch")
-Batch "0..2" -- "0..*" Crop : > of
+Batch "0..*" -- "1" Crop : > of
 !endif
