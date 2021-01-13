@@ -1,0 +1,6 @@
+!$test=true
+
+abstract Test {
+	DateTime : datetime
+	'Date of the test
+}

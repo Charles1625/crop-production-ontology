@@ -1,3 +1,4 @@
+@startuml
 !$batch=true
 
 class Batch
@@ -10,3 +11,20 @@ Reference : text
 Batch "1" -- "0..* Output" Transfer : < from
 Batch "1" -- "0..* Input" Transfer : < to
 !endif
+
+!if %variable_exists("$test")
+Batch "1" -- "0..*" Test : < on
+!endif
+
+!if %variable_exists("$treatment")
+Batch "1" -- "0..*" Treatment  < on
+!endif
+
+!if %variable_exists("$harvest")
+Batch "1" -- "0..*" Harvest : < of
+!endif
+
+!if %variable_exists("$planting")
+Batch "1" -- "0..*" Planting : < of
+!endif
+@enduml

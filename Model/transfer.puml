@@ -4,5 +4,7 @@ class Transfer
 'Transfer of crop from one batch to another
 {
 Quantity : number
-'Quantity transferred
+'Quantity transferred in kilogrammes
+DateTime : datetime
+'Date and time of the Transfer
 }

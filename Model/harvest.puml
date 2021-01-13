@@ -1,0 +1,12 @@
+!$harvest=true
+
+class Harvest {
+	DateTime : date-time
+	'When Harvest occurred'
+	Quantity : number
+	'Quantity of material harvested in kilogrammes'
+}
+
+!if %variable_exists("$location")
+Harvest "0..*"  -- "1" Location : > at
+!endif

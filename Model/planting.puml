@@ -1,0 +1,12 @@
+!$planting=true
+
+class Planting {
+	DateTime : date-time
+	'When Planting occurred'
+	Quantity : number
+	'Quantity of material planted in kilogrammes'
+}
+
+!if %variable_exists("$location")
+Planting "0..*"  -- "1" Location : > at
+!endif
