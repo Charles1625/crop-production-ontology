@@ -1,5 +1,0 @@
-!$treatment=true
-
-abstract Treatment {
-	DateTime : datetime
-}

@@ -1,6 +1,0 @@
-@startuml
-hide circle
-
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/transfer.puml
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/batch.puml
-@enduml

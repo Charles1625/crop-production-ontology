@@ -1,7 +1,0 @@
-@startuml
-hide circle
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/compound.puml
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/substance.puml
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/produce.puml
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/material.puml
-@enduml
