@@ -7,7 +7,7 @@ produce of a crop, as in "The wheat in the first bay of the barn at Green Farm w
 A Crop is identified by species, variety (cultivar) and the part of the plant, such as grain, or straw.
 
 
-![Crop and Batch](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Materials/batch-crop.puml)
+![Crop and Batch](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Materials/batch-crop1.puml)
 
 *Figure 1 - Crop and Batch*
 
