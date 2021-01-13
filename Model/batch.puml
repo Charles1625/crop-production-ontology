@@ -17,7 +17,7 @@ Batch "1" -- "0..*" Test : < on
 !endif
 
 !if %variable_exists("$treatment")
-Batch "1" -- "0..*" Treatment  < on
+Batch "1" -- "0..*" Treatment : < on
 !endif
 
 !if %variable_exists("$harvest")
