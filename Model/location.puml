@@ -5,6 +5,7 @@ abstract Location
 
 !if %variable_exists("$point")
 Location <|-- Point
+!endif
 
 !if %variable_exists("$path")
 Location <|-- Path
