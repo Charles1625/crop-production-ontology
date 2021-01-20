@@ -1,8 +1,10 @@
 !$harvest=true
 
-class Harvest {
-	DateTime : date-time
-	'When Harvest occurred'
+class Harvest 
+'Harvest of produce from a location
+{
+	DateTime : datetime
+	'Date and time of the Harvest'
 	Quantity : number
 	'Quantity of material harvested in kilogrammes'
 }

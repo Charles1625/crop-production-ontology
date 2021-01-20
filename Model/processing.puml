@@ -1,0 +1,7 @@
+!$processing=true
+
+abstract Processing 
+'Processing of a batch of a crop
+{
+	DateTime : datetime
+}

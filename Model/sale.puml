@@ -1,0 +1,10 @@
+!$sale=true
+
+class Sale 
+'A sale, or other movement of produce from a Batch which is not to another Batch
+{
+DateTime : datetime
+' Date and time of movement of produce from the Batch
+Quantity : number
+'Quantity of produce moved
+}

@@ -1,29 +1,15 @@
 
 !$polygon=true
-abstract Polygon { 
-A non-self-intersecting polygon on the Earth's surface with some relation to crop production.
-Area() : number
-'the area of this Polygon
-Intersection(polygon: Polygon) : Polygon
-'a Polygon, if any, that represents the overlapping of this Polygon and the given Polygon.
-Contains(point : Point)  : boolean
-'True if this Polygon contains the given Point.
+class Polygon { 
+'A non-self-intersecting polygon on the Earth's surface with some relation to crop production.
 }
 
 !if %variable_exists("$point")
-Polygon o-- "3..* {ordered} vertex" Point : > has
+Polygon o-- "3..* {ordered} Vertex" Point : > has
 note right on link
 {no straight line between any two consecutive points 
 is allowed to cross any other straight line between 
 two consecutive points 
 or between the first point and the last point}
 end note
-!endif
-
-!if %variable_exists("$included_polygon")
-Polygon <|-- IncludedPolygon
-!endif
-
-!if %variable_exists("$excluded_polygon")
-Polygon <|-- ExcludedPolygon
 !endif

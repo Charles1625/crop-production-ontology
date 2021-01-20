@@ -1,7 +1,9 @@
 !$location=true
 
-abstract Location
+class Location
 'A location on the Earth's surface with some relation to crop production.
+
+Location "0..1" o-- "0..*" Location : > contains
 
 !if %variable_exists("$point")
 Location <|-- Point

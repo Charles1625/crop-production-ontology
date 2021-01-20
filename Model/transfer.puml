@@ -1,7 +1,7 @@
 !$transfer=true
 
 class Transfer
-'Transfer of crop from one batch to another
+'Transfer of produce from one batch to another
 {
 Quantity : number
 'Quantity transferred in kilogrammes

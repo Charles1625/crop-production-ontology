@@ -1,0 +1,10 @@
+!$purchase=true
+
+class Purchase 
+'A purchase of produce (possibly as seed), or other movement of produce to a Batch which is not from another Batch.
+{
+DateTime : datetime
+'Date and time of movement of produce to the Batch.
+Quantity : number
+'Quantity of produce moved in kilogrammes.
+}

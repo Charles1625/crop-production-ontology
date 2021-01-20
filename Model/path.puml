@@ -2,11 +2,7 @@
 
 class Path 
 'A path on the Earth's surface with some relation to crop production.
-{ 
-Length() 
-'Sum of the lengths of the straight lines joining consecutive pairs of Points.
-} 
 
 !if %variable_exists("$point")
-Path o-- "2..* {ordered}" Point : > has
+Path o-- "2..* {ordered} Waypoint" Point : > has
 !endif

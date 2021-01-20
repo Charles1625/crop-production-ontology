@@ -2,22 +2,28 @@
 !$batch=true
 
 class Batch
-'A batch of material
+'A batch of Produce of a crop.
 {
 Reference : text
+'A reference for the batch.
 }
 
 !if %variable_exists("$transfer")
-Batch "1" -- "0..* Output" Transfer : < from
-Batch "1" -- "0..* Input" Transfer : < to
+note "{ Batches must be of same Produce }" as N1
+
+Transfer "0..1" -- "0..*" Batch : > from
+Batch "0..1" -- "0..*" Transfer : < to
+(Transfer,Batch) .. N1
+(Batch,Transfer) .. N1
+
 !endif
 
 !if %variable_exists("$test")
 Batch "1" -- "0..*" Test : < on
 !endif
 
-!if %variable_exists("$treatment")
-Batch "1" -- "0..*" Treatment : < on
+!if %variable_exists("$processing")
+Batch "1" -- "0..*" Processing : < delivers into
 !endif
 
 !if %variable_exists("$harvest")
@@ -25,6 +31,15 @@ Batch "1" -- "0..*" Harvest : < of
 !endif
 
 !if %variable_exists("$planting")
-Batch "1" -- "0..*" Planting : < of
+Batch "1" -- "0..*" Planting : < from
 !endif
+
+!if %variable_exists("$sale")
+Batch "1" -- "0..*" Sale : < from
+!endif
+
+!if %variable_exists("$purchase")
+Batch "1" -- "0..*" Purchase : < into
+!endif
+
 @enduml

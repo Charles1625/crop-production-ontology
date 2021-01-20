@@ -1,6 +1,8 @@
 !$test=true
 
-abstract Test {
+abstract Test 
+'A test on a batch of produce
+{
 	DateTime : datetime
-	'Date of the test
+	'Date and time of the sampling for the test
 }

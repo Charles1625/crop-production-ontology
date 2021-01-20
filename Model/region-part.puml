@@ -1,0 +1,9 @@
+!$region_part=true
+
+class RegionPart
+'A part of a Region.
+{
+	ExternalBoundary : Polygon
+	'The external boundary of the part of the region.
+}
+RegionPart o-- "0..* Hole" Polygon : < excludes land from

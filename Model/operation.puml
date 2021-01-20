@@ -1,0 +1,16 @@
+!$operation=true
+
+abstract Operation
+'An operation at a location related to crop production'
+{
+	DateTime : datetime 
+	'Date and time that the operation was carried out.'
+}
+
+!if %variable_exists("$location")
+Operation "0..*" -- "1" Location : > at
+!endif
+
+!if %variable_exists("$substance")
+Operation "0..*" -- "0..*" Substance : > applies
+!endif

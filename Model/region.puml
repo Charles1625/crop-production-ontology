@@ -2,16 +2,9 @@
 class Region 
 'A region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
 {
-Reference : RegionReference
-'A reference for the Region consisting of any number of parts of a variety of types.
-Area() : number
-'Total area covered by the Region
-Intersection(region: Region) : Region
-'The Region if any that represents the overlap between this Region and the given Region.
-Contains(location : Location) : boolean
-'True if the given Location is contained by this Region.
 }
 
-!if %variable_exists("$included_polygon")
-Region o-- "1..*" IncludedPolygon : > has
+!if %variable_exists("$region_part")
+Region o-- "1..*" RegionPart : > has
 !endif
+

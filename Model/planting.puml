@@ -1,10 +1,12 @@
 !$planting=true
 
-class Planting {
-	DateTime : date-time
-	'When Planting occurred'
+class Planting 
+'Planting/sowing of a crop
+{
+	DateTime : datetime
+	'Date and time of the planting/sowing'
 	Quantity : number
-	'Quantity of material planted in kilogrammes'
+	'Quantity of material planted/sown in kilogrammes'
 }
 
 !if %variable_exists("$location")
