@@ -13,4 +13,12 @@ Operation "0..*" -- "1" Location : > at
 
 !if %variable_exists("$substance")
 Operation "0..*" -- "0..*" Substance : > applies
+(Operation, Substance) .. Application
+
+class Application 
+'Application of a substance in an operation
+{
+	Quantity : number
+	'Quantity of substance applied, in kilogrammes
+}
 !endif
