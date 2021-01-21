@@ -1,10 +1,12 @@
 !$substance=true
 
 class Substance
-'A substance used in crop production
+'A substance used in crop production.
 {
 Name : enumeration
-'One of an agreed list of names for substances used in crop production
+'One of an agreed list of names for substances used in crop production.
+State : enumeration
+'Physical state in which the substance is used.
 }
 
 !if %variable_exists("$ingredient")

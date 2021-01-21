@@ -1,0 +1,8 @@
+@startuml
+
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/location.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/observation.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/ingredient.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/substance.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/operation.puml
+ @enduml

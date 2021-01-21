@@ -1,12 +1,12 @@
 !$harvest=true
 
 class Harvest 
-'Harvest of produce from a location
+'Harvest of produce from a location.
 {
 	DateTime : datetime
-	'Date and time of the Harvest'
+	'Date and time of the Harvest.'
 	Quantity : number
-	'Quantity of material harvested in kilogrammes'
+	'Quantity of material harvested in kilogrammes.'
 }
 
 !if %variable_exists("$location")

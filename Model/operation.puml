@@ -1,7 +1,7 @@
 !$operation=true
 
 abstract Operation
-'An operation at a location related to crop production'
+'An operation at a location related to crop production.'
 {
 	DateTime : datetime 
 	'Date and time that the operation was carried out.'
@@ -19,6 +19,6 @@ class Application
 'Application of a substance in an operation
 {
 	Quantity : number
-	'Quantity of substance applied, in kilogrammes
+	'Quantity of substance applied, in kilogrammes for solids, or litres for liquids (and possibly gases).
 }
 !endif

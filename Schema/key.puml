@@ -1,0 +1,46 @@
+@startuml
+hide circle
+
+ObjectA o-- ObjectB
+note on link 
+ObjectA has a property 
+which is an array of ObjectB
+end note
+
+ObjectC --> ObjectD
+note on link 
+ObjectC has a property 
+which is a 0-based index 
+of ObjectD in the array of ObjectDs
+end note
+
+ObjectE *-- ObjectF
+note on link 
+ObjectE has a property 
+which is an ObjectF
+end note
+
+class ObjectG
+note right 
+ObjectG has a property, ObjectG, 
+which is oneOf 
+an ObjectH, ObjectI, or ObjectJ.
+end note
+ObjectG <|-- ObjectH
+ObjectG <|-- ObjectI
+ObjectG <|-- ObjectJ
+
+abstract ClassM
+note right
+ClassM may be specialized 
+by populating a oneOf 
+with specialized objects
+end note
+
+ObjectK ..> ObjectL
+note on link 
+ObjectK may have a property 
+which is the name 
+of an ObjectL
+end note
+@enduml

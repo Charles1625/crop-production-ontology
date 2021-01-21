@@ -1,7 +1,8 @@
 !$processing=true
 
 abstract Processing 
-'Processing of a batch of a crop
+'Some processing of a batch of produce.
 {
 	DateTime : datetime
+	'Date and time of the processing.
 }

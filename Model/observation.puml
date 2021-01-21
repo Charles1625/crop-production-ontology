@@ -4,7 +4,7 @@ abstract Observation
 'An observation at a location related to crop production.'
 {
 	DateTime : datetime 
-	'The date and time of the observation '
+	'The date and time of the observation. '
 }
 
 !if %variable_exists("$location")

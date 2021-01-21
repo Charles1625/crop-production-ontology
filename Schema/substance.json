@@ -1,0 +1,45 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.github.com/Charles1625/crop-production-ontology/Schema/substance.json",
+
+	"definitions": {
+		"ingredient": {
+			"description": "An ingredient of a substance",
+			"type": "object",
+			"properties": {
+				"name": {
+					"description": "One of an agreed list of names for ingredients of substances used in crop production.",
+					"type": "string",
+					"enum": [ "agreed list of ingredient names goes here"]
+				},
+				"concentration": {
+					"description": "Percentage concentration of the ingredient in the substance",
+					"type": "number",
+					"exclusiveMinimum": 0,
+					"maximum": 100
+				},
+			}, "required": [ "name", "concentration" ]
+		}
+	},
+
+	"description": "A substance used in crop production, referred to by name only",
+	"type": "object",
+	"properties": {
+		"name": {
+			"description": "One of an agreed list of names for substances used in crop production",
+			"type": "string",
+			"enum": [ "agreed list of substance names goes here" ]
+		},
+		"state": {
+			"description": "Physical state in which the substance is used.",
+			"type": "string",
+			"enum": [ "Solid", "Liquid", "Gas" ]
+		},
+		"ingredients": {
+			"description": "Ingredients in the substance",
+			"type": "array",
+			"items": { "$ref": "#/definitions/ingredient" }
+		},
+		"required": [ "name", "state", "ingredients" ]
+	}
+}

@@ -4,8 +4,10 @@ hide circle
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/location.puml
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/transfer.puml
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/test.puml
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/treatment.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/processing.puml
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/harvest.puml
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/planting.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/purchase.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/sale.puml
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/batch.puml
 @enduml

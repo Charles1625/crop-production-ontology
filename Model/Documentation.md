@@ -1,76 +1,60 @@
 # Documentation of the UML Model
 
-Full definitions of all of the elements in the UML Model are provided here with Classes in alphabetical order.
+Full definitions of all of the elements in the UML Model are provided here with Classes in alphabetical order.  However, the definitive Model is in the PlantUML files (see [here](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/UML.md)).
 
-See [here](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/UML.md) for information on the formal definition of the Model.
+## Application
+Application of a substance in and operation.
+
+|Property| |
+|----|----|
+|Quantity : number|Quantity of substance applied, in kilogrammes for solids, or litres for liquids (and possibly gases).|
+
+**Association class for**
+[Operation](#operation) applies Substance
 
 ## Batch
-A batch of material.
+A batch of produce of a crop.
 
 |Property| |
 |----------|----------|
-|Reference : text | A reference for the batch|
+|Reference : text | A reference for the batch.|
 
-**Association**
+|Association| |
+|---------|------------|
+|[Transfer](#transfer) from Batch|A number of transfers may be made from a batch.|
+|[Transfer](#transfer) to Batch|A number of transfers may be made to a batch.|
+|[Test](#test) on Batch|A number of tests may be made on a batch|
+|[Processing](#processing) of Batch|A number of processings may be made of a batch.|
+|[Harvest](#harvest) delivers into Batch|A number of harvests may deliver into a batch.|
+|[Planting](#planting) from Batch|A number of Plantings may be made from a batch.|
+|[Sale](#sale) from Batch|A number of sales may be made from a batch|
+|[Purchase](#purchase)into Batch|A number of purchases may be made into a batch.|
+|Batch of [Produce](#produce)|Any number of Batches may be of a Produce.|
 
-See:
-- [Material](#material)
+## Harvest
+Harvest of produce from a location.
 
-## Compound
-A chemical compound
+|Properties| |
+|-----------|-----------|
+|DateTime : datetime|Date and time of the harvest.|
+|Quantity : number|Quantity of crop harvested in kilogrammes.|
 
-|Property| |
-|-----------|------------|
-|Name : text|Name of the compound|
+**Associated with**
+- [Batch](#batch)
+- [Location](#location)
 
-**Association**
+## Ingredient
+An ingredient of a substance.
 
-See:
+|Properties| |
+|--------------|-------------|
+|Name : enumeration|One of an agreed list of names for ingredients of substances used in crop production.|
+|Concentration|Percentage concentration of the ingredient in the substance.|
+
+**Aggregated by**
 - [Substance](#substance)
 
-## Content
-The content of a particular chemical compound in a particular substance
-
-**Association Class for**
-
-[Substance](#substance) contains Compound
-
-|Property| |
-|-----------|-----------|
-|Concentration : number|The concentration of the chemical compound in the substance|
-
-
-## ExcludedPolygon
-A Polygon (see "IncludedPolygon has ExcludedPolygon" aggregation).
-
-**Aggregated by**
-
-- [IncludedPolygon](#includedpolygon)
-
-**Generalization**
-- [Polygon](#polygon)
-
-## IncludedPolygon
-A polygon that is part of a Region (see also ExcludedPolygon).
-
-|Aggregation| |
-|--------------|-------------|
-|IncludedPolygon has [ExcludedPolygon](#excludedpolygon)|An IncludedPolygon may have any number of ExcludedPolygons, each of which exclude that part of it from the Region to which it belongs, but does not exclude part of any other IncludedPolygon of that Region.|
-
-**Aggregated by**
--[Region](#region)
-
-**Generalization**
--[Polygon](#polygon)
-
-## LatitudeType 
-A decimal number between -90 and 90 with a precision of no more than 7.
-
-**Stereotype**
-
-dataType
-
-## *Location*
+## Location
 A location on the Earth's surface with some relation to crop production.
 
 **Specializations**
@@ -78,109 +62,213 @@ A location on the Earth's surface with some relation to crop production.
 - [Point](#point)
 - [Region](#region)
 
-## LongitudeType 
-A decimal number between -180 and 180 with a precision of no more than 7.
+|Associations| |
+|------|-------|
+|[Harvest](#harvest) at Location|Any number of harvests can be made at a location.|
+|[Observation](#observation) at Location|Any number of observations can be made at a location.|
+|[Operation](#operation) at Location|Any number of operations can be carried out at a location.|
+|[Planting](#planting) at Location|Any number of plantings/sowings can be made at a location.|
+|Location contains Location|A Location may contain (include) any number of other locations.| 
 
-**Stereotype**
+## *Observation*
+An observation at a location related to crop production.
 
-dataType
+|Property| |
+|-----------|------------|
+|DateTime : datetime| Date and time of the observation.|
 
-## *Material*
-A kind of material.
+**Associated with**
+- [Location](#location)
+
+## *Operation*
+An operation at a location related to crop production.
+
+|Property| |
+|------------|------------|
+|DateTime : datetime|Date and time that the operation was carried out.
 
 |Association| |
-|----------|------------|
-|[Batch](#batch) of Material|Any number of batches may be of a single material.|
+|-----|-----|
+|Operation applies [Substance](#substance)|An Operation may apply any number of different substances.|
+
+**Associated with**
+-[Location](#location)
+
 
 ## Path
-A path on the Earth's surface with some relation to crop production.
+A mapped path on the Earth's surface with some relation to crop production.
 |Method | |
 |--------|------|
-|Length() : number|Sum of the lengths of the straight lines joining consecutive pairs of Points.|
 
 |Aggregation| |
 |------------|------------|
-|Path has [Point](#point)|A Path has an ordered set of Points
+|Path has [Point](#point)|A Path has an ordered set of at least two waypoints, represented as Points.|
 
+**Generalization**
+- [Location](#location)
+
+## Planting
+Planting/sowing of a crop
+
+|Properties| |
+|---------|-----------|
+|DateTime : datetime|Date and time of the planting/sowing.|
+|Quantity : number|Quantity of material planted/sown in kilogrammes.|
+
+**Associated with**
+- [Location](#location)
 
 ## Point 
-A point in a rectangle representing an Equirectangular projection of the Earth's surface with some relation to crop production.
+A point, with some relvance to crop production in a rectangle representing an Equirectangular projection of the Earth's surface.
 
 | Properties | |
 |------------|---------|
-|Latitude : [LatitudeType](#latitudetype) |the y-coordinate of the Point|
-|Longitude : [LongitudeType](#longitudetype)|the x-coordinate of the Point|
-
-| Method| |
-|----------|----------|
-|DistanceFrom(point : Point) : number|The actual distance on the Earth's surface between this point and the given point.|
+|Latitude : number|the latitude of the Point expressed in decimal degrees to a precision of no more than 7 decimal places.|
+|Longitude : number|the latitude of the Point expressed in decimal degrees to a precision of no more than 7 decimal places.|
 
 **Aggregated by**
 - [Path](#path)
 - [Polygon](#polygon)
 
+**Generalization**
+- [Location](#location)
+
 ## *Polygon*
 A non-self-intersecting polygon on the Earth's surface with some relation to crop production.
 
-|Methods| |
-|-------|------|
-|Area() : number|the area of this Polygon|
-|Intersection(polygon : Polygon) : Polygon|a Polygon, if any, that represents the overlapping of this Polygon and the given Polygon.|
-|Contains(point : Point) : boolean|True if this Polygon contains the given Point.|
-
 |Aggregation| |
 |-------------|--------------|
-|Polygon has [Point](#point)|A polygon has an ordered set of Points, such that no straight line between any two consecutive points is allowed to cross any other straight line between two consecutive points or between the first point and the last point.|
+|Polygon has [Point](#point)|A polygon has an ordered set of at least threeVertices, represented as Points, such that no straight line between any two consecutive points is allowed to cross any other straight line between two consecutive points or between the first point and the last point.|
 
-**Specializations**
-- [ExcludedPolygon](#excludedpolygon)
-- [IncludedPolygon](#includedpolygon)
+**Member of**
+- [RegionPart](#regionpart)
+
+**Aggregated by**
+- [RegionPart](#regionpart)
+
+## *Processing*
+Some processing of a batch of produce.
+
+|Property| |
+|------|--------|
+|DateTime : datetime|Date and time of the processing.|
+
+**Associated with**
+- [Batch](#batch)
 
 ## Produce
-The produce of a crop.
+Description of plant material harvested for some use.
 
 |Properties| |
 |-----------|------------|
-|Species : text|The species of the producing crop.|
-|Variety : text|The variety (cultivar) of the producing crop|
-|Part : text|The part of the plant (e.g. grain, or straw)|
+|Species : text|The species of the plants.|
+|Variety : text|The variety (cultivar) of the plants.|
+|Part : text|The part of the plants (e.g. grain, or straw).|
 
+**Associated with**
+- [Batch](#batch)
 
-## Region
-A region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
+## Purchase
+A purchase of produce (powwibly as seed), or other movement of produce to a Batch which is not from another Batch.
 
 |Properties| |
-|--------|------|
-|Reference : [RegionReference](#regionreference)|A reference for the Region consisting of any number of parts of a variety of types.|
+|----------|------|
+|DateTime : datetime|Date and time of movement of the produce to the Batch.|
+|Quantity : number|Quantity of produced moved in kilogrammes.|
 
-Methods| |
-|---------|----------|
-|Area() : number|Total area covered by the Region|
-|Intersection(region : Region) : Region|The Region if any that represents the overlap between this Region and the given Region.|
-|Contains(location : [Location](#location) : boolean |True if the given Location is contained by this Region.|
+**Associated with**
+- [Batch](#batch)
+
+## Region
+A mapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
 
 |Aggregation| |
 |-----------|------------|
-|Region has [IncludedPolygon](#includedpolygon)|A Region may have any number of IncludedPolygons|
+|Region has [RegionPart](#regionpart)|A Region must have at least one RegionPart.|
 
-## *RegionReference*
-A reference for a region.
+**Generalization**
+- [Location](#location)
 
-**Stereotype**
+## RegionPart
+A part of a Region.
 
-dataType
+|Property| |
+|--------|-------|
+|ExternalBoundary : [Polygon](#polygon)|The external boundary of the part of the region.|
+
+|Aggregation| |
+|---------|-----------|
+|[Polygon](#polygon) excludes land from RegionPart|Any number of Holes, represented as Polygons, may exclude land from a RegionPart.|
+
+## Sale
+A sale of produce , or other movement of produce from a Batch which is not to another Batch.
+
+|Properties| |
+|----------|------|
+|DateTime : datetime|Date and time of movement of the produce from the Batch.|
+|Quantity : number|Quantity of produced moved in kilogrammes.|
+
+**Associated with**
+- [Batch](#batch)
 
 ## Substance
 
-A substance involved in crop production.
+A substance used in crop production.
 
 |Property| |
 |----------|-------|
-|ProductName : text|A product name for the Substance.|
+|Name : enumeration|One of an agreed list of names for substances used in crop production.|
+|State : enumeration|Physical state in which the substance is used.|
 
 |Association| |
 |-------------|-----------|
-|Substance contains [Compound](#compound)|A substance may contain a number of compounds.  A compound may be contained by a number of substances.|
+|[Ingredient](#ingredient) in Substance|A substance may contain a number of ingredients.  An ingredient may be contained by a number of substances.|
 
-## UKFieldReference
-An example of a [RegionReference](#regionreference).
+## Test
+A test on a batch of produce.
+
+|Property| |
+|------|--------|
+|DateTime : datetime|Date and time of the sampling for the test.|
+
+**Associated with**
+- [Batch](#batch)
+
+## Transfer
+Transfer of produce from one batch to another.
+
+|Properties| |
+|-----|----|
+|DateTime : datetime|Date and time of the transfer.|
+|Quantity : number|Quantity transferred in kilogrammes.|
+
+**Associated with**
+- [Batch](#batch)
+- 
+## UnmappedPath
+An unmapped path on the Earth's surface with some relation to crop production.
+
+|Property| |
+|-----------|---------|
+|Length : number|Length of the unmapped path.|
+
+**Generalization**
+- [Location](#location)
+
+## UnmappedPoint
+An unmapped point having some relevance to crop production.
+
+**Generalization**
+- [Location](#location)
+
+## UnmappedRegion
+An unmapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
+
+|Property| |
+|--------|--------|
+|Area : number|Area of the unmapped region.|
+
+**Generalization**
+- [Location](#location)
+
+

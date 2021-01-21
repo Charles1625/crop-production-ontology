@@ -1,10 +1,10 @@
 !$transfer=true
 
 class Transfer
-'Transfer of produce from one batch to another
+'Transfer of produce from one batch to another.
 {
 Quantity : number
-'Quantity transferred in kilogrammes
+'Quantity transferred in kilogrammes.
 DateTime : datetime
-'Date and time of the Transfer
+'Date and time of the Transfer.
 }

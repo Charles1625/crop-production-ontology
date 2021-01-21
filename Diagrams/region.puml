@@ -1,7 +1,6 @@
 @startuml
 hide circle
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/excluded-polygon.puml
-!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/included-polygon.puml
+!include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/region-part.puml
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/polygon.puml
 !include https://raw.github.com/Charles1625/crop-production-ontology/main/Model/region.puml
 @enduml

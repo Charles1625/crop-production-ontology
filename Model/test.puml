@@ -1,8 +1,8 @@
 !$test=true
 
 abstract Test 
-'A test on a batch of produce
+'A test on a batch of produce.
 {
 	DateTime : datetime
-	'Date and time of the sampling for the test
+	'Date and time of the sampling for the test.
 }

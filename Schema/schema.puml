@@ -1,0 +1,108 @@
+@startuml
+'startuml
+hide circle
+
+class Schema
+
+class harvest {
+date-time
+quantity
+}
+location "1" o-- "0..*" harvest
+batch "1" <-- "0.." harvest
+
+class planting {
+date-time
+quantity
+}
+location "1" o-- "0..*" planting
+batch "1" <-- "0..*" planting
+
+class location
+Schema "1" o-- "0..*" location
+
+class point {
+latitude
+longitude
+}
+
+location <|-- point
+
+class path
+path "1" o-- "2..*" point
+location <|-- path
+
+
+class polygon
+polygon "1" o-- "3..*" point
+
+class region
+location <|-- region
+
+class region_part
+region "1" o-- "1..*" region_part
+region_part "1" *-- "1 external_boundary" polygon
+region_part "1" o-- "0..** holes" polygon
+
+class transfer {
+date-time
+quantity
+}
+batch "1" o-- "0..*" transfer
+batch "1 to" <-- "0..*" transfer
+
+class purchase {
+date-time
+quantity
+}
+batch "1" o-- "0..*" purchase
+
+class sale {
+date-time
+quantity
+}
+batch "1" o-- "0..*" sale
+
+class batch {
+reference
+}
+Schema "1" o-- "0..*" batch
+
+class produce {
+species
+variety
+part
+}
+batch "0--*" --> "1" produce
+
+abstract observation {
+date-time
+}
+location "1" o-- "0..*" observation
+
+abstract operation {
+date-time
+}
+location "1" o-- "0..*" operation
+
+abstract test {
+date-time
+}
+batch "1" o-- "0..*" test
+
+abstract processing {
+date-time
+}
+batch "1" o-- "0..*" processing
+
+class substance {
+name
+}
+operation "0..*" ..> "1" substance
+
+class ingredient {
+name
+concentration
+}
+substance o-- "0..*" ingredient
+@enduml

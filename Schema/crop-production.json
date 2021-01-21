@@ -1,0 +1,396 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://raw.github.com/Charles1625/crop-production-ontology/Schema/crop-production.json",
+
+	"definitions": {
+		"point": {
+			"description": "A point, with some relevance to crop production, in a rectangle representing an Equirectangular projection of the Earth's surface.",
+			"type": "object",
+			"properties": {
+				"class": {
+					"const": "point"
+				},
+				"latitude": {
+					"description": "The latitude of the point, expressed in decimal degrees to a precision of no more than 7 decimal places.",
+					"type": "number",
+					"exclusiveMinimum": -90,
+					"maximum": 90,
+					"multipleOf": 0.0000001
+				},
+				"longitude": {
+					"description": "The longitude of the point, expressed in decimal degrees to a precision of no more than 7 decimal places.",
+					"type": "number",
+					"exclusiveMinimum": -180,
+					"maximum": 180,
+					"multipleOf": 0.0000001
+				},
+			}, "required": [ "class", "latitude", "longitude" ]
+		},
+		"unmapped-point": {
+			"description": "An unmapped point having some relevance to crop production.",
+			"type": "object",
+			"properties": {
+				"class": {
+					"const": "unmapped-point"
+				}
+			},
+			"required": [ "class" ]
+		},
+		"path": {
+			"description": "A path on the Earth's surface with some relation to crop production (an ordered list of waypoints).",
+			"type": "object",
+			"properties": {
+				"class": {
+					"const": "path",
+				},
+				"waypoints": {
+					"type": "array",
+					"items": { "$ref": "#/definitions/point" },
+					"minItems": 2
+				}
+			},
+			"required": [ "class", "waypoints" ]
+		},
+		"unmapped-path": {
+			"description": "An unmapped path on the Earth's surface with some relation to crop production.",
+			"type": "object",
+			"properties": {
+				"class": {
+					"const": "unmapped-path"
+				},
+				"length": {
+					"description": "Length of the unmapped path.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				}
+			},
+			"required": [ "class", "length" ]
+		},
+		"polygon": {
+			"description": "A non-self-intersecting polygon on the Earth's surface with some relation to crop production.",
+			"type": "array",
+			"items": { "$ref": "#/definitions/point" },
+			"minItems": 3
+		},
+		"region-part": {
+			"description": "A part of a region.",
+			"type": "object",
+			"properties": {
+				"external-boundary": {
+					"description": "The external boundary of the part ot the region.",
+					"$ref": "#/definitions/polygon"
+				},
+				"holes": {
+					"description": "Polygons excluding land from the part of the region.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/polygon" }
+				}
+			},
+			"required": [ "polygon" ]
+		},
+		"region": {
+			"description": "A region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.",
+			"type": "object",
+			"properties": {
+				"class": {
+					"const": "region"
+				},
+				"region-parts": {
+					"type": "array",
+					"items": { "$ref": "#/definitions/region-part" },
+					"minItems": 1
+				}
+			},
+			"required": [ "class", "region-parts" ]
+		},
+		"unmapped-region": {
+			"description": "An unmapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.",
+			"type": "object",
+			"properties": {
+				"class": {
+					"const": "unmapped-region"
+				},
+				"area": {
+					"description": "Area of the unmapped region.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				}
+			},
+			"required": [ "class", "area" ]
+		},
+		"planting": {
+			"description": "Planting/sowing of a crop.",
+			"type": "object",
+			"properties": {
+				"batch": {
+					"description": "Zero-based index of the batch in the batches array used for this planting.",
+					"type": "integer"
+				},
+				"date-time": {
+					"description": "date and time of the planting/sowing.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"quantity": {
+					"description": "Quantity of meterial planted/sown in kilogrammes.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				}
+			},
+			"required": [ "batch", "date-time", "quantity" ]
+		},
+		"harvest": {
+			"description": "Harvest of produce from a location.",
+			"type": "object",
+			"properties": {
+				"batch": {
+					"description": "Zero-based index of the batch in the batches array receiving the produce of this harvest.",
+					"type": "integer"
+				},
+				"date-time": {
+					"description": "Date and time of the harvest.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"quantity": {
+					"description": "Quantity harvested in kilogrammes.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				}
+			},
+			"required": [ "batch", "date-time", "quantity" ]
+		},
+		"observation": {
+			"description": "An observation at a location related to crop production.",
+			"type": "object",
+			"properties": {
+				"date-time": {
+					"description": "date and time of the observation.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"observation": {
+					"description": "Specialized details of the observation.",
+					"oneOf": [ { "description": "agreed list of subschemas goes here" } ]
+				}
+			},
+			"required": [ "date-time", "observation" ]
+		},
+		"application": {
+			"description": "Application of a substance in an operation.",
+			"type": "object",
+			"properties": {
+				"substance": {
+					"description": "Name of the substance applied.",
+					"type": "string"
+				},
+				"quantity": {
+					"description": "Quantity of substance applied, in kilogrammes for solids, or litres for liquids (and possibly gases).",
+					"type": "number",
+					"exclusiveMinimum": 0
+				}
+			}
+		},
+		"operation": {
+			"description": "An operation at a location related to crop production.",
+			"type": "object",
+			"properties": {
+				"date-time": {
+					"description": "Date and time that the operation was carried out.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"applications": {
+					"description": "Applications of substances, if any",
+					"type": "array",
+					"items": { "$ref": "/#definitions/application" }
+				},
+				"operation": {
+					"description": "Specialized details of the operation.",
+					"oneOf": [ { "description": "agreed list of subschemas goes here" } ]
+				}
+			},
+			"required": [ "date-time", "operation" ]
+		},
+		"location": {
+			"description": "A location on the Earth's surface with some relation to crop production.",
+			"type": "object",
+			"properties": {
+				"location" : {
+					"oneOf": [
+						{ "$ref": "#/definitions/point" },
+						{ "$ref": "#/definitions/unmapped-point" },
+						{ "$ref": "#/definitions/path" },
+						{ "$ref": "#/definitions/unmapped-path" },
+						{ "$ref": "#/definitions/region" },
+						{ "$ref": "#/definitions/unmapped-region" }
+					]
+				},
+				"contains": {
+					"description": "Locations contained within this Location.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/location" }
+				},
+				"plantings": {
+					"description": "All relevant plantings at this location.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/planting" }
+				},
+				"harvests": {
+					"description": "All relevant harvests at this location.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/harvest" }
+				},
+				"observations": {
+					"description": "All relevant observations at this location.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/observation" }
+				},
+				"operations": {
+					"description": "All relevant operations at this location.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/operations" }
+				}
+			},
+		},
+		"test": {
+			"description": "A test on a batch of produce.",
+			"type": "object",
+			"properties": {
+				"date-time": {
+					"description": "Date and time of the sampling for the test.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"test": {
+					"description": "Specialized details (results) of the test.",
+					"oneOf": [ { "description": "agreed list of subschemas goes here" } ]
+				}
+			},
+			"required": [ "date-time", "test" ]
+		},
+		"processing": {
+			"description": "Some processing of a batch of produce.",
+			"type": "object",
+			"properties": {
+				"date-time": {
+					"description": "Date and time of the processing.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"processing": {
+					"description": "Specialized details of the treatment.",
+					"oneOf": [ { "description": "agreed list of subschemas goes here" } ]
+				}
+			},
+			"required": [ "date-time", "processing" ]
+		},
+		"transfer": {
+			"description": "Transfer of crop from one batch to another.",
+			"type": "object",
+			"properties": {
+				"to": {
+					"description": "Zero-based index of the batch in the batches array to which this was a transfer.",
+					"type": "integer"
+				},
+				"date-time": {
+					"description": "Date and time of the transfer.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"quantity": {
+					"description": "Quantity transferred in kilogrammes.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				}
+			},
+			"required": [ "to", "date-time", "quantity" ]
+		},
+		"purchase": {
+			"description": "A purchase of produce (powwibly as seed), or other movement of produce to a Batch which is not from another Batch.",
+			"type": "object",
+			"properties": {
+				"date-time": {
+					"description": "Date and time of the movement of the produce to the batch.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"quantity": {
+					"description": "Quantity of produce moved in kilogrammes.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				}
+			},
+			"required": [ "date-time", "quantity" ]
+		},
+		"sale": {
+			"description": "A sale, or other movement of produce from a Batch which is not to another Batch.",
+			"type": "object",
+			"properties": {
+				"date-time": {
+					"description": "Date amnd time of movement of produce from the Batch.",
+					"type": "string",
+					"format": "date-time"
+				},
+				"quantity": {
+					"description": "Quantity of produce moved in kilogrammes.",
+					"type": "number",
+					"exclusiveMinimum": 0
+				}
+			},
+			"required": [ "date-time", "quantity" ]
+		},
+		"batch": {
+			"description": "A batch of Produce of a crop.",
+			"type": "object",
+			"properties": {
+				"reference": {
+					"description": "A reference for the batch.",
+					"type": "string"
+				},
+				"produce": { "$ref": "produce.json" },
+				"tests": {
+					"description": "All relevant tests on batches of crop from the production unit.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/test" }
+				},
+				"processings": {
+					"description": "All relevant processing of this batch.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/treatment" }
+				},
+				"transfers": {
+					"description": "All relevant transfers from this batch to some other batch.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/transfer" }
+				},
+				"purchases": {
+					"description": "All relevant purchases (or other inward movements) into this batch.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/purchase" }
+				},
+				"sales": {
+					"description": "All relevant sales (or other outward movements) from this batch.",
+					"type": "array",
+					"items": { "$ref": "#/definitions/sale" }
+				},
+			},
+			"required": [ "produce" ]
+		}
+	},
+
+	"description": "Data sharing from a production unit.",
+	"type": "object",
+	"properties": {
+		"locations": {
+			"description": "All relevant locations from the production unit.",
+			"type": "array",
+			"items": { "$ref": "#/definitions/location" }
+		},
+		"batches": {
+			"description": "All relevant batches of crop from the production unit.",
+			"type": "array",
+			"items": { "$ref": "#/definitions/batch" }
+		}
+	}
+}

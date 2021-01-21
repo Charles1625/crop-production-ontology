@@ -14,5 +14,5 @@ class UnmappedRegion
 'An unmapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
 {
 	Area : number
-	'Area of the unmapped region
+	'Area of the unmapped region.
 }

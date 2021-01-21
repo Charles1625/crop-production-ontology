@@ -1,14 +1,14 @@
 !$produce=true
 
 class Produce
-'Description of plant material harvested for some use
+'Description of plant material harvested for some use.
 {
 Species : enumeration
-'The species of the plants
+'The species of the plants.
 Variety : enumeration
-'The variety (cultivar) of the plants
+'The variety (cultivar) of the plants.
 Part : enumeration
-'The part of the plants (e.g.grain, or straw)
+'The part of the plants (e.g.grain, or straw).
 }
 
 !if %variable_exists("$batch")

@@ -1,10 +1,10 @@
 !$ingredient=true
 
 class Ingredient
-'An ingredient of a substance'
+'An ingredient of a substance.'
 {
 	Name : enumeration
-	'One of an agreed list of names for ingredients of substances used in crop production
+	'One of an agreed list of names for ingredients of substances used in crop production.
 	Concentration: number
-	'Percentage concentration of the ingredient in the substance
+	'Percentage concentration of the ingredient in the substance.
 }
