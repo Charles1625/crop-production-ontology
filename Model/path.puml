@@ -1,7 +1,7 @@
 !$path=true
 
 class Path 
-'A path on the Earth's surface with some relation to crop production.
+'A mapped path on the Earth's surface with some relation to crop production.
 
 !if %variable_exists("$point")
 Path o-- "2..* {ordered} Waypoint" Point : > has

@@ -3,7 +3,7 @@
 class Substance
 'A substance used in crop production
 {
-Name : text
+Name : enumeration
 'One of an agreed list of names for substances used in crop production
 }
 

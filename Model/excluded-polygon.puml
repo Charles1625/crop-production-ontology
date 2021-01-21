@@ -1,3 +1,0 @@
-!$excluded_polygon=true
-class ExcludedPolygon
-'A Polygon (see "IncludedPolygon has ExcludedPolygon" aggregation).

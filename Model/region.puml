@@ -1,6 +1,6 @@
 !$region=true
 class Region 
-'A region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
+'A mapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
 {
 }
 

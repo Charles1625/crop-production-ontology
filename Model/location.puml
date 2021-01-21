@@ -16,3 +16,9 @@ Location <|-- Path
 !if %variable_exists("$region")
 Location <|-- Region
 !endif
+
+!if %variable_exists("$unmapped")
+Location <|-- UnmappedPoint
+Location <|-- UnmappedPath
+Location <|-- UnmappedRegion
+!endif
