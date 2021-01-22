@@ -253,7 +253,7 @@ An unmapped path on the Earth's surface with some relation to crop production.
 
 |Property| |
 |:-----------|:---------|
-|Length : number|Length of the unmapped path.|
+|Length : number|Length of the unmapped path in metres.|
 
 **Generalization**
 - [Location](#location)
@@ -269,7 +269,7 @@ An unmapped region of the Earth's surface with some relation to crop production 
 
 |Property| |
 |:--------|:--------|
-|Area : number|Area of the unmapped region.|
+|Area : number|Area of the unmapped region in hectares.|
 
 **Generalization**
 - [Location](#location)

@@ -7,12 +7,12 @@ class UnmappedPath
 'An unmapped path on the Earth's surface with some relation to crop production.
 {
 	Length : number
-	'Length of the unmapped path.
+	'Length of the unmapped path in metres.
 }
 
 class UnmappedRegion
 'An unmapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
 {
 	Area : number
-	'Area of the unmapped region.
+	'Area of the unmapped region in hectares.
 }

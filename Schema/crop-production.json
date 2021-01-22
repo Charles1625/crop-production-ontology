@@ -59,7 +59,7 @@
 					"const": "unmapped-path"
 				},
 				"length": {
-					"description": "Length of the unmapped path.",
+					"description": "Length of the unmapped path in metres.",
 					"type": "number",
 					"exclusiveMinimum": 0
 				}
@@ -111,7 +111,7 @@
 					"const": "unmapped-region"
 				},
 				"area": {
-					"description": "Area of the unmapped region.",
+					"description": "Area of the unmapped region in hectares.",
 					"type": "number",
 					"exclusiveMinimum": 0
 				}
