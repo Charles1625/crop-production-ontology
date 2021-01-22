@@ -4,7 +4,7 @@
 As for many domains, there will presently be a need for large datasets (Big Data) to assist the 
 development of machine-learning solutions for crop production. 
 Data in this domain currently exists in a wide range of formats, 
-including those managed by a number of applications in use by farmers and growers. 
+including those managed by a variety of applications in use by farmers and growers. 
 The first step in building the necessary datasets will be to agree a standard ontology; the challenge is to create a 
 common set of terms for describing crop production data that will apply to a wide range of crops and production methods,
 including those which might develop in the future.
@@ -41,7 +41,7 @@ Some of the above are *generalizations* and through collaboration with domain ex
 to improve the granularity of the terms used.
 
 ## Collaboration
-The sharing of this project through GitHub, allows collaboration between domain experts (e.g. farmers, agronomists, crop scientists) and data 
+The sharing of this project through GitHub allows collaboration between domain experts (e.g. farmers, agronomists, crop scientists) and data 
 scientists who may raise Issues (see the menu), or may make a more hands-on contribution.  
 
 >Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  Additionally, [PlantUML](https://plantuml.com/) is needed to modify, or contribute UML diagrams.
@@ -51,7 +51,7 @@ Collaboration is needed both to improve and extend what is currently presented.
 ## Output
 The output of this project will be:
 - A formal description of terms and how they relate to each other, expressed as a Model built using the Unified Modeling Language (UML).
-- A machine readable Schema based on the Model, against which datasets can be standardised so that they can be combined.
+- A machine readable [Schema](https://github.com/Charles1625/crop-production-ontology/blob/main/Schema/Readme.md) based on the Model, against which datasets can be standardised so that they can be combined.
 
 ## Development of the Model
 The following describes the thinking behind the [Model](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/Documentation.md). 
@@ -59,7 +59,7 @@ A set of UML diagrams are presented, each followed by a set of explanatory state
 because the meaning of the various symbols and text in the diagrams should become obvious from the explanatory statements.
 
 ### Location
-![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Model/point.puml)
+![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/point.puml)
 
 The simplest kind of Location is a point on the surface of the earth.  A Point has two Properties, Latitude and Longitude.  
 
@@ -80,7 +80,7 @@ The use of a Path in this domain is limited, but might be of value for an observ
 By far the more common use of an ordered list of points will be a Polygon.  Here a Point takes the role of Vertex of which there must be at least three.
 Tracing a series of points could result in crossed lines:
 
-![Self intersecting polygon](https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/self-intersecting-polygon.png)
+![Self intersecting polygon](https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/self-intersecting-polygon.png)
 
 While mathematicians are happy to deal with self-intersecting polygons, it will be inconvenient in this domain.
 
@@ -89,10 +89,10 @@ While mathematicians are happy to deal with self-intersecting polygons, it will 
 A simple Polygon is not necessarily going to be sufficient to describe the kind of Region which a crop may occupy,
  or on which operations, or observations are made.  This is the kind of complex situation that can arise:
 
-![Complex field layout](https://raw.github.com/Charles1625/crop-production-ontology/main/Locations/field-layout.png)
+![Complex field layout](https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/field-layout.png)
 
 The narrative for this map, involving five Polygons, might be:
->The field is divided into two parts by a track.  In the larger part there are two areas where the crop failed to establish, but, in one of them, a small patch of crop did establish.
+>The field is divided into two parts by a track.  In the larger part there are two areas where the crop failed to establish, but, in one of these, a small patch of crop did establish.
 
 In crop production, a field is only one example of something that can have such a complex layout, so Region is suggested
 as a name for this.  In the above map, the Region has three green areas which can be referred to as RegionParts.  Their external
@@ -142,7 +142,7 @@ Processing and Test are classes that will require specialization.
 
 ![Observation](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/obs-op.puml)
 
-An Observation is defined as an event related to a Location.  The data observed will vary depending on the type of
+An Observation is made at a Location.  The data observed will vary depending on the type of
 Observation, so it will be an abstract, generalizing class whose specializations will need to be determined following
 consultation with domain experts.
 

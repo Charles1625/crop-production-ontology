@@ -84,6 +84,7 @@ abstract operation {
 date-time
 }
 location "1" o-- "0..*" operation
+operation "1" o-- "0..*" application
 
 abstract test {
 date-time
@@ -95,10 +96,14 @@ date-time
 }
 batch "1" o-- "0..*" processing
 
+class application {
+	quantity
+}
+
 class substance {
 name
 }
-operation "0..*" ..> "1" substance
+application --> "1" substance
 
 class ingredient {
 name
@@ -106,3 +111,4 @@ concentration
 }
 substance o-- "0..*" ingredient
 @enduml
+

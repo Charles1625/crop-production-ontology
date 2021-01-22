@@ -39,7 +39,7 @@ end note
 
 ObjectK ..> ObjectL
 note on link 
-ObjectK may have a property 
+ObjectK has a property 
 which is the name 
 of an ObjectL
 end note

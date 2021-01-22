@@ -17,7 +17,7 @@ Each class that is not a specialization of another class is represented as an `o
 Substance whose schemas are in their own .json files of the same name (in lower case).  Separate files have been used where there are likely 
 to be enumerations with several items.  Ingredient is to be found in substance.json.
 
-Classes which are specializations are represented as objects containing only the properties which are not in the generalization, but with an addtional property, "class", which is a `const` evaluating to the class name.
+Classes which are specializations are represented as objects, with the same name as the specialization class, containing only the properties which are not in the generalization, but with an addtional property, "class", which is a `const` evaluating to the class name.
 
 The main part of the schema is an object with two properties, `locations` and `batches` which are arrays of `location` and `batch`, 
 respectively.
@@ -38,6 +38,8 @@ The only exceptions are:
 the name of the parent class and has the `type` `integer` which will be used for the zero-based 
 index of the linked object in the array of such objects.  Currently, such links are only to batches.
 - where the parent class has a unique name, the child class has a property of the same name as the parent class which evaluates to the unique name.
+
+There is currently only one example of a many-to-many relationship in the Model: Operation - Substance which has an association class, Application.  Here, `application` is given a property which is the unique name of the `substance` and `operation` is given a property which is an array of `application` objects.
 
 The above approach to relationships avoids having to maintain links by assigning unique identifiers to objects.
 
