@@ -9,18 +9,16 @@ The first step in building the necessary datasets will be to agree a standard on
 common set of terms for describing crop production data that will apply to a wide range of crops and production methods,
 including those which might develop in the future.
 
-Machine-learning solutions for crop production will attempt to relate what happens to crops with what is produced from them, so the
-scope of this project should be limited to measurement of the quality and quantity produced and the factors that
-affect them.
+The aim of machine-learning solutions for crop production will be to establish how what happens to crops affects what is produced from them.
 
-Data on the latter is often not directly, or uniquely related to the former.  For example:
+Data on the former is often not directly, or uniquely related to the latter.  For example:
 
 - in spatial terms, operations and observations may relate to an area which intersects with that of the crop, but is not coterminous with it, 
 - in temporal terms, the growth of the crop will be affected by soil type, and previous cropping.
 
 However, the relationship between the crop and these data can be established via their Location.
 
-Similary, there are difficulties with relating data on what was produced (quality, quantity and subsequent processing) with the crop growing in the 
+Similary, there are difficulties in relating data on what was produced (quality, quantity and subsequent processing) with the crop growing in the 
 field.  Produce from different fields may be bulked together, or split up, so data needs to be related to a Batch of Produce.
 
 Data is generated from a series of events:
@@ -53,6 +51,16 @@ The output of this project will be:
 - A formal description of terms and how they relate to each other, expressed as a Model built using the Unified Modeling Language (UML).
 - A machine readable [Schema](https://github.com/Charles1625/crop-production-ontology/blob/main/Schema/Readme.md) based on the Model, against which datasets can be standardised so that they can be combined.
 
+## Scope
+
+The scope of the product must be limited to the measurement of:
+
+- the quality and quantity of produce and
+- the factors that affect the above.
+
+This would exclude, for example, specific requirements for financial and stock control.
+
+
 ## Development of the Model
 The following describes the thinking behind the [Model](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/Documentation.md). 
 A set of UML diagrams are presented, each followed by a set of explanatory statements.  There is no need to make any special study of UML, 
@@ -77,7 +85,7 @@ The use of a Path in this domain is limited, but might be of value for an observ
 
 ![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/polygon.puml)
 
-By far the more common use of an ordered list of points will be a Polygon.  Here a Point takes the role of Vertex of which there must be at least three.
+By far the more common use of an ordered list of points will be a Polygon.  Here, a Point takes the role of Vertex of which there must be at least three.
 Tracing a series of points could result in crossed lines:
 
 ![Self intersecting polygon](https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/self-intersecting-polygon.png)
