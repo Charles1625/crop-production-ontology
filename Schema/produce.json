@@ -1,24 +1,24 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "http://json-schema.org/draft-07/schema#,
 	"$id": "https://raw.github.com/Charles1625/crop-production-ontology/Schema/produce.json",
 
 	"description": "Description of plant material harvested for some use",
 	"type": "object",
-	"properties": {
+	"properties": {""
 		"species": {
 			"description": "Species of the plants",
 			"type": "string",
-			"enum": ["agreed list of species names goes here"]
+			"enum": [ "agreed list of species names goes here, such as:", "Winter wheat", "Spring barley" ]
 		},
 		"variety": {
 			"description": "Variety (cultivar) of the plants",
 			"type": "string",
-			"enum": ["agreed list of variety names goes here"]
+			"enum": [ "agreed list of variety names goes here, such as:", "Skyfall", "Planet" ]
 		},
 		"part": {
 			"description": "part of the plants",
 			"type": "string",
-			"enum": ["agreed list of crop part names goes here"]
+			"enum": [ "agreed list of crop part names goes here, such as:", "grain", "straw" ]
 		}
 	},
 	"required": [ "species", "part" ]
