@@ -3,6 +3,24 @@
 	"$id": "https://raw.github.com/Charles1625/crop-production-ontology/Schema/crop-production.json",
 
 	"definitions": {
+		"point-tuple": {
+			"description": "Lat/Lon tuple for use as a waypoint in Path and a vertex in Polygon",
+			"type": "array",
+			"items": [
+				{
+					"type": "number",
+					"exclusiveMinimum": -90,
+					"maximum": 90,
+					"multipleOf": 0.0000001
+				},
+				{
+					"type": "number",
+					"exclusiveMinimum": -180,
+					"maximum": 180,
+					"multipleOf": 0.0000001
+				}
+			]
+		},
 		"point": {
 			"description": "A point, with some relevance to crop production, in a rectangle representing an Equirectangular projection of the Earth's surface.",
 			"type": "object",
@@ -45,7 +63,7 @@
 				},
 				"waypoints": {
 					"type": "array",
-					"items": { "$ref": "#/definitions/point" },
+					"items": { "$ref": "#/definitions/point-tuple" },
 					"minItems": 2
 				}
 			},
@@ -69,7 +87,7 @@
 		"polygon": {
 			"description": "A non-self-intersecting polygon on the Earth's surface with some relation to crop production.",
 			"type": "array",
-			"items": { "$ref": "#/definitions/point" },
+			"items": { "$ref": "#/definitions/point-tuple" },
 			"minItems": 3
 		},
 		"region-part": {
@@ -132,7 +150,7 @@
 					"format": "date-time"
 				},
 				"quantity": {
-					"description": "Quantity of meterial planted/sown in kilogrammes.",
+					"description": "Quantity of material planted/sown in kilogrammes.",
 					"type": "number",
 					"exclusiveMinimum": 0
 				}
@@ -252,6 +270,7 @@
 					"items": { "$ref": "#/definitions/operations" }
 				}
 			},
+			"required": [ "location" ]
 		},
 		"test": {
 			"description": "A test on a batch of produce.",

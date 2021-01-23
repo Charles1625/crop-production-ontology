@@ -6,7 +6,7 @@ It is proposed that data should be shared in JavaScript Object Notation (JSON), 
 The current version still requires some testing.
 
 ## Methodology
-The Schema is based on the UML Model.  The following describes the general approach taken when mapping from UML to JSON
+The Schema is based on the [UML Model](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/Documentation.md).  The following describes the general approach taken when mapping from UML to JSON
 Schema and any exceptions made.
 
 ### Names
@@ -17,7 +17,9 @@ Each class that is not a specialization of another class is represented as an `o
 Substance whose schemas are in their own .json files of the same name (in lower case).  Separate files have been used where there are likely 
 to be enumerations with several items.  Ingredient is to be found in substance.json.
 
-Classes which are specializations are represented as objects, with the same name as the specialization class, containing only the properties which are not in the generalization, but with an addtional property, "class", which is a `const` evaluating to the class name.
+Classes which are specializations are represented as objects, with the same name as the specialization class, containing only the properties which are not in the generalization, but with an addtional property, "class", which is a `const` evaluating to the class name. 
+
+The Point class is an exception.  When it is used as a wayopint in Path, or a vertex in Polygon, it is reduced to a tuple to make conformant JSON documents less verbose. 
 
 The main part of the schema is an object with two properties, `locations` and `batches` which are arrays of `location` and `batch`, 
 respectively.
