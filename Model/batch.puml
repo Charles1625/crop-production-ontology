@@ -23,11 +23,11 @@ Batch "1" -- "0..*" Test : < on
 !endif
 
 !if %variable_exists("$processing")
-Batch "1" -- "0..*" Processing : < delivers into
+Batch "1" -- "0..*" Processing : < of
 !endif
 
 !if %variable_exists("$harvest")
-Batch "1" -- "0..*" Harvest : < of
+Batch "1" -- "0..*" Harvest : < into
 !endif
 
 !if %variable_exists("$planting")
