@@ -11,7 +11,7 @@ including those which might develop in the future.
 
 The aim of machine-learning solutions for crop production will be to establish how what happens to crops affects what is produced from them.
 
-Data on the former is often not directly, or uniquely related to the latter.  For example:
+Data on the former is often neither directly, nor uniquely related to the latter.  For example:
 
 - in spatial terms, operations and observations may relate to an area which intersects with that of the crop, but is not coterminous with it, 
 - in temporal terms, the growth of the crop will be affected by soil type, and previous cropping.
@@ -147,7 +147,6 @@ to, or from the production unit) may occur.
 Processing and Test are classes that will require specialization.
 
 ### Observations and Operations
-
 ![Observation](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/obs-op.puml)
 
 An Observation is made at a Location.  The data observed will vary depending on the type of
