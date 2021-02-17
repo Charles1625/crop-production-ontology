@@ -13,13 +13,13 @@ Schema and any exceptions made.
 JSON names are in lower case only.  Where names are a combination of words, the words are separated by hyphens.
 
 ### Classes
-Each class that is not a specialization of another class is represented as an `object` of the same name in the definitions, with the exception of Produce and 
-Substance whose schemas are in their own .json files of the same name (in lower case).  Separate files have been used where there are likely 
-to be enumerations with several items.  Ingredient is to be found in substance.json.
+Each class that is not a specialization of another class is represented as an `object` of the same name in the definitions, with the exception of 
+Substance whose schema is in substance.json, because there are likely 
+to be a large number of items in the name enumeration.  Ingredient is also to be found in substance.json.
 
 Classes which are specializations are represented as objects, with the same name as the specialization class, containing only the properties which are not in the generalization, but with an addtional property, "class", which is a `const` evaluating to the class name. 
 
-The Point class is an exception.  When it is used as a wayopint in Path, or a vertex in Polygon, it is reduced to a tuple to make conformant JSON documents less verbose. 
+The Point class is an exception.  When it is used as a waypoint in Path, or a vertex in Polygon, it is reduced to a tuple to make conformant JSON documents less verbose. 
 
 The main part of the schema is an object with two properties, `locations` and `batches` which are arrays of `location` and `batch`, 
 respectively.

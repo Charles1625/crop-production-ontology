@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://raw.github.com/Charles1625/crop-production-ontology/Schema/crop-production.json",
+	"$id": "https://raw.github.com/Charles1625/crop-production-ontology/main/Schema/crop-production.json",
 
 	"definitions": {
 		"point-tuple": {
@@ -221,7 +221,7 @@
 				"applications": {
 					"description": "Applications of substances, if any",
 					"type": "array",
-					"items": { "$ref": "/#definitions/application" }
+					"items": { "$ref": "#/definitions/application" }
 				},
 				"operation": {
 					"description": "Specialized details of the operation.",
@@ -267,7 +267,7 @@
 				"operations": {
 					"description": "All relevant operations at this location.",
 					"type": "array",
-					"items": { "$ref": "#/definitions/operations" }
+					"items": { "$ref": "#/definitions/operation" }
 				}
 			},
 			"required": [ "location" ]
@@ -359,6 +359,28 @@
 			},
 			"required": [ "date-time", "quantity" ]
 		},
+		"produce": {
+			"description": "Description of plant material harvested for some use",
+			"type": "object",
+			"properties": {
+				"species": {
+					"description": "Species of the plants",
+					"type": "string",
+					"enum": [ "agreed list of species names goes here, such as:", "Winter wheat", "Spring barley" ]
+				},
+				"variety": {
+					"description": "Variety (cultivar) of the plants",
+					"type": "string",
+					"enum": [ "agreed list of variety names goes here, such as:", "Skyfall", "Planet" ]
+				},
+				"part": {
+					"description": "part of the plants",
+					"type": "string",
+					"enum": [ "agreed list of crop part names goes here, such as:", "grain", "straw" ]
+				}
+			},
+			"required": [ "species", "part" ]
+		},
 		"batch": {
 			"description": "A batch of Produce of a crop.",
 			"type": "object",
@@ -367,7 +389,7 @@
 					"description": "A reference for the batch.",
 					"type": "string"
 				},
-				"produce": { "$ref": "produce.json" },
+				"produce": { "$ref": "#/definitions/produce" },
 				"tests": {
 					"description": "All relevant tests on batches of crop from the production unit.",
 					"type": "array",
@@ -376,7 +398,7 @@
 				"processings": {
 					"description": "All relevant processing of this batch.",
 					"type": "array",
-					"items": { "$ref": "#/definitions/treatment" }
+					"items": { "$ref": "#/definitions/processing" }
 				},
 				"transfers": {
 					"description": "All relevant transfers from this batch to some other batch.",
@@ -398,7 +420,7 @@
 		}
 	},
 
-	"description": "Data sharing from a production unit.",
+	"description": "Data sharing from a crop production unit.",
 	"type": "object",
 	"properties": {
 		"locations": {
@@ -407,7 +429,7 @@
 			"items": { "$ref": "#/definitions/location" }
 		},
 		"batches": {
-			"description": "All relevant batches of crop from the production unit.",
+			"description": "All relevant batches of produce from the production unit.",
 			"type": "array",
 			"items": { "$ref": "#/definitions/batch" }
 		}
