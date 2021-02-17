@@ -21,7 +21,7 @@ A batch of produce of a crop.
 
 |Association| |
 |:---------|:------------|
-|[Harvest](#harvest) delivers into Batch|Any number of harvests may deliver into a batch.|
+into a batch.|
 |[Planting](#planting) from Batch|Any number of Plantings may be made from a batch.|
 |Batch of [Produce](#produce)|Any number of Batches may be of a Produce.|
 |[Processing](#processing) of Batch|Any number of processings may be made of a batch.|
