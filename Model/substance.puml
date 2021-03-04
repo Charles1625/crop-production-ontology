@@ -10,5 +10,5 @@ State : enumeration
 }
 
 !if %variable_exists("$ingredient")
-Substance "0..*" -- "0..*" Ingredient : < in
+Substance  o-- "0..*" Ingredient : < in
 !endif

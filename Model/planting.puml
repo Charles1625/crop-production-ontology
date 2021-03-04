@@ -7,8 +7,6 @@ class Planting
 	'Date and time of the planting/sowing.'
 	Quantity : number
 	'Quantity of material planted/sown in kilogrammes.'
+	Broadcast : boolean
+	'True if the planting was random, or the sowing was broadcast.
 }
-
-!if %variable_exists("$location")
-Planting "0..*"  -- "1" Location : > at
-!endif

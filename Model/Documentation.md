@@ -10,7 +10,7 @@ Application of a substance in an operation.
 |Quantity : number|Quantity of substance applied, in kilogrammes for solids, or litres for liquids (and possibly gases).|
 
 **Association class for**
-[Operation](#operation) applies Substance
+[Operation](#operation) applies [Substance](#substance)
 
 ## Batch
 A batch of produce of a crop.
@@ -19,9 +19,9 @@ A batch of produce of a crop.
 |:----------|:----------|
 |Reference : text | A reference for the batch.|
 
-|Association| |
+|Associations| |
 |:---------|:------------|
-into a batch.|
+|[Harvest](#harvest)|Any number of Harvests may be delivered into a batch.|
 |[Planting](#planting) from Batch|Any number of Plantings may be made from a batch.|
 |Batch of [Produce](#produce)|Any number of Batches may be of a Produce.|
 |[Processing](#processing) of Batch|Any number of processings may be made of a batch.|
@@ -30,6 +30,15 @@ into a batch.|
 |[Test](#test) on Batch|Any number of tests may be made on a batch|
 |[Transfer](#transfer) from Batch|Any number of transfers may be made from a batch.|
 |[Transfer](#transfer) to Batch|Any number of transfers may be made to a batch.|
+
+## Crop
+A community of cultivated plants.
+
+|Associations| |
+|:-------|:------|
+|[Planting](#planting)|A crop has at least one planting.|
+|[Row](#row)|A crop may have an ordered pattern of rows (if it is not broadcast).|
+
 
 ## Harvest
 Harvest of produce from a location.
@@ -117,9 +126,11 @@ Planting/sowing of a crop
 |:---------|:-----------|
 |DateTime : datetime|Date and time of the planting/sowing.|
 |Quantity : number|Quantity of material planted/sown in kilogrammes.|
+|Broadcast : boolean|True if the planting was random, or the sowing was broadcast.|
 
 **Associated with**
-- [Location](#location)
+- [Batch](#batch)
+- [Crop](#crop)
 
 ## Point 
 A point, with some relvance to crop production in a rectangle representing an Equirectangular projection of the Earth's surface.
@@ -203,6 +214,20 @@ A part of a Region.
 |:---------|:-----------|
 |[Polygon](#polygon) excludes land from RegionPart|Any number of Holes, represented as Polygons, may exclude land from a RegionPart.|
 
+## Row
+Row of crop within a pattern
+
+|Property| |
+|:---|:---|
+|Distance : number|Distance in centimetres to the next row in the pattern.|
+
+|Association| |
+|:---|:---|
+|[Planting](#planting)|A row is from a planting which must be one of the plantings of the crop of which it is a row|
+
+**Associated with**
+- [Crop](#crop)
+
 ## Sale
 A sale of produce , or other movement of produce from a Batch which is not to another Batch.
 
@@ -223,9 +248,9 @@ A substance used in crop production.
 |Name : enumeration|One of an agreed list of names for substances used in crop production.|
 |State : enumeration|Physical state in which the substance is used.|
 
-|Association| |
+|Aggregation| |
 |:-------------|:-----------|
-|[Ingredient](#ingredient) in Substance|A substance may contain a number of ingredients.  An ingredient may be contained by a number of substances.|
+|[Ingredient](#ingredient) in Substance|A substance may contain a number of ingredients.|
 
 ## Test
 A test on a batch of produce.

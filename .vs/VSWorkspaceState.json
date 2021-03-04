@@ -1,13 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Crops",
-    "\\Events",
-    "\\Locations",
+    "\\Diagrams",
     "\\Model",
-    "\\Obs-Ops",
     "\\Schema"
   ],
-  "SelectedNode": "\\Model\\treatment.puml",
+  "SelectedNode": "\\Model\\crop.puml",
   "PreviewInSolutionExplorer": false
 }

@@ -9,13 +9,8 @@ Reference : text
 }
 
 !if %variable_exists("$transfer")
-note "{ Batches must be of same Produce }" as N1
-
 Transfer "0..1" -- "1" Batch : > from
 Batch "1" -- "0..*" Transfer : < to
-(Transfer,Batch) .. N1
-(Batch,Transfer) .. N1
-
 !endif
 
 !if %variable_exists("$test")

@@ -1,0 +1,21 @@
+!$crop=true
+
+class Crop
+'Community of cultivated plants
+
+class Row
+'Row of crop within a pattern
+{
+	Distance : number
+	'Distance in centimetres to the next row in the pattern.
+}
+
+!if %variable_exists("$location")
+Crop "0..*" -- "1" Location	: > at
+!endif
+
+Crop "1" -- "0..* {ordered} Row : > has pattern of
+
+Row "1" -- "1 {must be one of the Crop's non-broadcast Plantings}" Planting : > from
+
+Crop "1" -- "1..*" Planting : > has

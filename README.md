@@ -14,7 +14,7 @@ The aim of machine-learning solutions for crop production will be to establish h
 Data on the former is often neither directly, nor uniquely related to the latter.  For example:
 
 - in spatial terms, operations and observations may relate to an area which intersects with that of the crop, but is not coterminous with it, 
-- in temporal terms, the growth of the crop will be affected by soil type, and previous cropping.
+- in temporal terms, crop growth can be related to factors measured some time before the crop was established.
 
 However, the relationship between the crop and these data can be established via their Location.
 
@@ -65,6 +65,7 @@ This would exclude, for example, specific requirements for financial and stock c
 The following describes the thinking behind the [Model](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/Documentation.md). 
 A set of UML diagrams are presented, each followed by a set of explanatory statements.  There is no need to make any special study of UML, 
 because the meaning of the various symbols and text in the diagrams should become obvious from the explanatory statements.
+> The display of UML diagrams in documents in this repository is unstable, because it relies on the PlantUML server which is sometimes too slow for the GitHub server.  If a diagram is not displayed, click on the hyperlink displayed in its place.  It may be necessary to make several attempts at this.
 
 ### Location
 ![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/point.puml)
@@ -74,8 +75,7 @@ The simplest kind of Location is a point on the surface of the earth.  A Point h
 There is little opportunity for crop production on the anti-meridian (-180 and 180 longitude), or at the poles (-90 and 90 latitude), so Locations can 
 be set in a two-dimensional space.  Calculations of distances and thus areas will need to take account of latitude.
 
-A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude, but altitude seems to be an 
-unnecessary overhead, given the role of Location in this domain.
+A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude. Crops are assumed to be grown on the surface of the earth which is a plane, so altitude, if required can always be determined from existing geographical information systems.
 
 ![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/path.puml)
 
@@ -112,8 +112,8 @@ In the map, there are three RegionParts of which one has two Holes.
 
 >This is a similar approach to that described in 
 >[sub-section 2.7.2 of the Oracle Spatial and Graph Developer’s Guide – “Polygon with a Hole”](https://docs.oracle.com/database/121/SPATL/polygon-hole.htm#SPATL520 ),
->(see the discussion about countries with lakes and islands in the lakes).  However, the design of Region avoids the complication of
->placing the co-ordinates of a polygon in the same list as those of its holes.
+>(see the discussion about countries with lakes and islands in the lakes) except that the design of Region avoids the complication of
+>placing the co-ordinates of a polygon and its holes in the same list.
 
 ![Location](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/location.puml)
 
@@ -123,7 +123,7 @@ There may also be
 Locations where, although no co-ordinates are known, it is known that observations and operations have occurred there and it
 may also be known that such a Location is contained within another Location.  This would be the case in IT systems for arable farming
 that do not include any form of mapping.  Therefore, Locations will need to be linked to each other without recourse to geometry. 
-Unmapped Locations will differ in the same way as mapped Locations; while there will be no data accompanying an UnmappedPoint, an UnmappedPath
+An UnmappedPath
 will have a Length and an UnmappedRegion will have an Area.
 
 ### Batch
@@ -136,12 +136,17 @@ Produce is identified by species, variety (cultivar) and the part of the plant, 
 or straw.  An agreed list of names (enumeration) for each of these three things will be required.
 
 ![Batch and events](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/batch-events.puml)
+Harvests will take place into Batches and will be at a Location.
 
 Material from a Batch may also be used as seed, or other propagative material, and the history of that material may 
-be relevant to the crop grown from it.  Batches will be associated with Planting and Harvest, both of which require a Location.  Whether, or not
-it is used as seed, it is potentially subject to Processing, e.g. drying, cleaning, chemical treatment.
+be relevant to what is grown from it.  Therefore Plantings will be made from Batches.  
 
-Tests for quality etc. are made on batches, Tansfers may be made from one Batch to another, and Purchases and Sales (or other movements of material
+Where there is intercropping there will be more than one Planting, even if these take place simultaneously.  Together such Plantings will make up a Crop which will be at a Location.  Unless it is all  either Broadcast, or randomly planted, the Crop will have a pattern of Rows with each Row belonging to one of the Plantings and being a certain Distance from the next Row.
+
+Whether, or not
+a batch is used as seed, it is potentially subject to Processing, e.g. drying, cleaning, chemical treatment.
+
+Tests for quality etc. are made on batches, Transfers may be made from one Batch to another, and Purchases and Sales (or other movements of material
 to, or from the production unit) may occur.
 
 Processing and Test are classes that will require specialization.

@@ -9,6 +9,7 @@ This directory contains one fully commented PlantUML (.puml) file for each Class
 |UnmappedPath|unmapped|
 |UnmappedPoint|unmapped|
 |UnmappedRegion|unmapped|
+|Row|crop|
 
 Relationships are included with the most relevant Class.
 

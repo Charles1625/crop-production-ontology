@@ -136,13 +136,44 @@
 			},
 			"required": [ "class", "area" ]
 		},
+		"crop": {
+			"description": "A community of cultivated plants",
+			"type": "object",
+			"properties": {
+				"plantings": {
+					"description": "The plantings of the crop",
+					"type": "array",
+					"items": { "#ref": "#/defintions/planting"}
+				},
+				"row-pattern": {
+					"description": "Pattern of rows within a crop",
+					"type": "array",
+					"items": {
+						"description": "Row of crop within a pattern",
+						"type": "object",
+						"properties": {
+							"planting": {
+								"description": "Zero-based index of the planting in the array of plantings for this crop.",
+								"type": "integer"
+							},
+							"distance": {
+								"description": "Distance in centimetres to the next row in the pattern.",
+								"type": "number",
+								"minimum": 0
+							}
+						}
+					}
+				}
+			}
+		},
 		"planting": {
 			"description": "Planting/sowing of a crop.",
 			"type": "object",
 			"properties": {
 				"batch": {
-					"description": "Zero-based index of the batch in the batches array used for this planting.",
-					"type": "integer"
+					"description": "Zero-based index of the batch in the batches array, used for this planting.",
+					"type": "integer",
+					"minimum": 0
 				},
 				"date-time": {
 					"description": "date and time of the planting/sowing.",
@@ -163,7 +194,8 @@
 			"properties": {
 				"batch": {
 					"description": "Zero-based index of the batch in the batches array receiving the produce of this harvest.",
-					"type": "integer"
+					"type": "integer",
+					"minimum": 0
 				},
 				"date-time": {
 					"description": "Date and time of the harvest.",
@@ -249,10 +281,10 @@
 					"type": "array",
 					"items": { "$ref": "#/definitions/location" }
 				},
-				"plantings": {
-					"description": "All relevant plantings at this location.",
+				"crops": {
+					"description": "All relevant crops at this location.",
 					"type": "array",
-					"items": { "$ref": "#/definitions/planting" }
+					"items": { "$ref": "#/definitions/crop" }
 				},
 				"harvests": {
 					"description": "All relevant harvests at this location.",
