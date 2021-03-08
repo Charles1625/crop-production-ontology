@@ -1,5 +1,4 @@
 @startuml
-'startuml
 hide circle
 
 class Schema

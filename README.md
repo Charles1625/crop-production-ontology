@@ -68,7 +68,7 @@ because the meaning of the various symbols and text in the diagrams should becom
 > The display of UML diagrams in documents in this repository is unstable, because it relies on the PlantUML server which is sometimes too slow for the GitHub server.  If a diagram is not displayed, click on the hyperlink displayed in its place.  It may be necessary to make several attempts at this.
 
 ### Location
-![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/point.puml)
+![Point](http://www.plantuml.com/plantuml/png/1S512W8n30NGg-W1fa515svTUuZQbcaWpG-P1F7syzwLjKdsSPaHTho8lFxApZ7pMneMlMTr6SVjUNzGSzXcZfuj6Bf10uBzJwkoqWTz21bOerWkEG40)
 
 The simplest kind of Location is a point on the surface of the earth.  A Point has two Properties, Latitude and Longitude.  
 
