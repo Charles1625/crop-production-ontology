@@ -1,5 +1,5 @@
 !$point=true
-hide circle
+
 class Point 
 'A point, with some relevance to crop production, in a rectangle representing an Equirectangular projection of the Earth's surface.
 {
