@@ -29,8 +29,8 @@ respectively.
 Properties are represented as `properties` of the relevant `object`.
 
 ### Generalization-Specialization
-For a generalizing class, one of the `properties` has the same name as the class and references to the specializations (see above) are included 
-in the list following a `oneOf` keyword for this property.  The following example of the contents of a JSON file, in which there is only one Location, a Point, and no Batches illustrates how generalization-specialization works:
+For a generalizing class, one of the `properties` has the same name as the class, and references to the specializations (see above) are included 
+in the list following a `oneOf` keyword for this property.  The following example of the contents of a JSON file, in which there is only one Location, a Point, and no Batches, illustrates how generalization-specialization works:
 ~~~
 "locations": [
 	{
