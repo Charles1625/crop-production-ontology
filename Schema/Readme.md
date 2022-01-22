@@ -30,7 +30,19 @@ Properties are represented as `properties` of the relevant `object`.
 
 ### Generalization-Specialization
 For a generalizing class, one of the `properties` has the same name as the class and references to the specializations (see above) are included 
-in the list following a `oneOf` keyword for this property.
+in the list following a `oneOf` keyword for this property.  The following example of the contents of a JSON file, in which there is only one Location, a Point, and no Batches illustrates how generalization-specialization works:
+~~~
+"locations": [
+	{
+		"location": {
+			"class": "point",
+			"latitude": 50.1032016, 
+			"longitude": -5.1144506
+		}
+	}
+],
+"batches": []
+~~~
 
 ### Relationships
 An aggregation, or a zero-to-many association becomes a `property` of `type` `array` of the aggregating `object` with the plural of the name of the aggregated objects, or where appropriate their role. 
