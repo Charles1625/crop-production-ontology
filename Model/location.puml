@@ -3,22 +3,4 @@
 class Location
 'A location on the Earth's surface with some relation to crop production.
 
-Location "0..1" o-- "0..*" Location : > contains
-
-!if %variable_exists("$point")
-Location <|-- Point
-!endif
-
-!if %variable_exists("$path")
-Location <|-- Path
-!endif
-
-!if %variable_exists("$region")
-Location <|-- Region
-!endif
-
-!if %variable_exists("$unmapped")
-Location <|-- UnmappedPoint
-Location <|-- UnmappedPath
-Location <|-- UnmappedRegion
 !endif

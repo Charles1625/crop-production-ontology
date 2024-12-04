@@ -1,8 +1,0 @@
-!$region=true
-class Region 
-'A mapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
-
-!if %variable_exists("$region_part")
-Region o-- "1..*" RegionPart : > has
-!endif
-

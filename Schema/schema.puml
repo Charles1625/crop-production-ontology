@@ -8,7 +8,7 @@ date-time
 quantity
 }
 location "1" o-- "0..*" harvest
-batch "1" <-- "0.." harvest
+batch "1" <-- "0..*" harvest
 
 class planting {
 date-time
@@ -17,31 +17,15 @@ quantity
 location "1" o-- "0..*" planting
 batch "1" <-- "0..*" planting
 
-class location
+class location {
+area
+}
 Schema "1" o-- "0..*" location
 
-class point {
-latitude
-longitude
-}
+class "GeoJSON Feature" as feature
 
-location <|-- point
-
-class path
-path "1" o-- "2..*" point
-location <|-- path
-
-
-class polygon
-polygon "1" o-- "3..*" point
-
-class region
-location <|-- region
-
-class region_part
-region "1" o-- "1..*" region_part
-region_part "1" *-- "1 external_boundary" polygon
-region_part "1" o-- "0..** holes" polygon
+location *-- "location" feature
+location "1" o-- "0..* contains" feature
 
 class transfer {
 date-time

@@ -14,7 +14,7 @@ class Row
 Crop "0..*" -- "1" Location	: > at
 !endif
 
-Crop "1" -- "0..* {ordered} Row : > has pattern of
+Crop "1" -- "0..* {ordered}" Row : > has pattern of
 
 Row "1" -- "1 {must be one of the Crop's non-broadcast Plantings}" Planting : > from
 

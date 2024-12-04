@@ -3,139 +3,6 @@
 	"$id": "https://raw.github.com/Charles1625/crop-production-ontology/main/Schema/crop-production.json",
 
 	"definitions": {
-		"point-tuple": {
-			"description": "Lat/Lon tuple for use as a waypoint in Path and a vertex in Polygon",
-			"type": "array",
-			"items": [
-				{
-					"type": "number",
-					"exclusiveMinimum": -90,
-					"maximum": 90,
-					"multipleOf": 0.0000001
-				},
-				{
-					"type": "number",
-					"exclusiveMinimum": -180,
-					"maximum": 180,
-					"multipleOf": 0.0000001
-				}
-			]
-		},
-		"point": {
-			"description": "A point, with some relevance to crop production, in a rectangle representing an Equirectangular projection of the Earth's surface.",
-			"type": "object",
-			"properties": {
-				"class": {
-					"const": "point"
-				},
-				"latitude": {
-					"description": "The latitude of the point, expressed in decimal degrees to a precision of no more than 7 decimal places.",
-					"type": "number",
-					"exclusiveMinimum": -90,
-					"maximum": 90,
-					"multipleOf": 0.0000001
-				},
-				"longitude": {
-					"description": "The longitude of the point, expressed in decimal degrees to a precision of no more than 7 decimal places.",
-					"type": "number",
-					"exclusiveMinimum": -180,
-					"maximum": 180,
-					"multipleOf": 0.0000001
-				},
-			}, "required": [ "class", "latitude", "longitude" ]
-		},
-		"unmapped-point": {
-			"description": "An unmapped point having some relevance to crop production.",
-			"type": "object",
-			"properties": {
-				"class": {
-					"const": "unmapped-point"
-				}
-			},
-			"required": [ "class" ]
-		},
-		"path": {
-			"description": "A path on the Earth's surface with some relation to crop production (an ordered list of waypoints).",
-			"type": "object",
-			"properties": {
-				"class": {
-					"const": "path",
-				},
-				"waypoints": {
-					"type": "array",
-					"items": { "$ref": "#/definitions/point-tuple" },
-					"minItems": 2
-				}
-			},
-			"required": [ "class", "waypoints" ]
-		},
-		"unmapped-path": {
-			"description": "An unmapped path on the Earth's surface with some relation to crop production.",
-			"type": "object",
-			"properties": {
-				"class": {
-					"const": "unmapped-path"
-				},
-				"length": {
-					"description": "Length of the unmapped path in metres.",
-					"type": "number",
-					"exclusiveMinimum": 0
-				}
-			},
-			"required": [ "class", "length" ]
-		},
-		"polygon": {
-			"description": "A non-self-intersecting polygon on the Earth's surface with some relation to crop production.",
-			"type": "array",
-			"items": { "$ref": "#/definitions/point-tuple" },
-			"minItems": 3
-		},
-		"region-part": {
-			"description": "A part of a region.",
-			"type": "object",
-			"properties": {
-				"external-boundary": {
-					"description": "The external boundary of the part ot the region.",
-					"$ref": "#/definitions/polygon"
-				},
-				"holes": {
-					"description": "Polygons excluding land from the part of the region.",
-					"type": "array",
-					"items": { "$ref": "#/definitions/polygon" }
-				}
-			},
-			"required": [ "polygon" ]
-		},
-		"region": {
-			"description": "A region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.",
-			"type": "object",
-			"properties": {
-				"class": {
-					"const": "region"
-				},
-				"region-parts": {
-					"type": "array",
-					"items": { "$ref": "#/definitions/region-part" },
-					"minItems": 1
-				}
-			},
-			"required": [ "class", "region-parts" ]
-		},
-		"unmapped-region": {
-			"description": "An unmapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.",
-			"type": "object",
-			"properties": {
-				"class": {
-					"const": "unmapped-region"
-				},
-				"area": {
-					"description": "Area of the unmapped region in hectares.",
-					"type": "number",
-					"exclusiveMinimum": 0
-				}
-			},
-			"required": [ "class", "area" ]
-		},
 		"crop": {
 			"description": "A community of cultivated plants",
 			"type": "object",
@@ -266,20 +133,16 @@
 			"description": "A location on the Earth's surface with some relation to crop production.",
 			"type": "object",
 			"properties": {
-				"location" : {
-					"oneOf": [
-						{ "$ref": "#/definitions/point" },
-						{ "$ref": "#/definitions/unmapped-point" },
-						{ "$ref": "#/definitions/path" },
-						{ "$ref": "#/definitions/unmapped-path" },
-						{ "$ref": "#/definitions/region" },
-						{ "$ref": "#/definitions/unmapped-region" }
-					]
-				},
+				"location" : { "$ref": "https://geojson.org/schema/Feature.json" },
 				"contains": {
 					"description": "Locations contained within this Location.",
 					"type": "array",
-					"items": { "$ref": "#/definitions/location" }
+					"items": { "$ref": "https://geojson.org/schema/Feature.json" }
+				},
+				"area": {
+					"description": "Area of the unmapped region in hectares.",
+					"type": "number",
+					"exclusiveMinimum": 0
 				},
 				"crops": {
 					"description": "All relevant crops at this location.",
