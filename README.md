@@ -1,11 +1,11 @@
 # A Crop Production Ontology
 
 ## Introduction
-As for many domains, there will presently be a need for large datasets (Big Data) to assist the 
+As for many domains, there is a need for large datasets (Big Data) to assist the 
 development of machine-learning solutions for crop production. 
 Data in this domain currently exists in a wide range of formats, 
-including those managed by a variety of applications in use by farmers and growers. 
-The first step in building the necessary datasets will be to agree a standard ontology; the challenge is to create a 
+including those managed by a variety of applications in use by farmers and growers. Often, there is a need for these applications to integrate.
+The first step in building the necessary datasets and to achieve inter-application integration will be to agree a standard ontology; the challenge is to create a 
 common set of terms for describing crop production data that will apply to a wide range of crops and production methods,
 including those which might develop in the future.
 
@@ -42,14 +42,14 @@ to improve the granularity of the terms used.
 The sharing of this project through GitHub allows collaboration between domain experts (e.g. farmers, agronomists, crop scientists) and data 
 scientists who may raise Issues (see the menu), or may make a more hands-on contribution.  
 
->Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  Additionally, [PlantUML](https://plantuml.com/) is needed to modify, or contribute UML diagrams.
+>Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  [PlantUML](https://plantuml.com/) will be helpful to those wishing to modify, or contribute UML diagrams.
 
 Collaboration is needed both to improve and extend what is currently presented.
 
 ## Output
 The output of this project will be:
 - A formal description of terms and how they relate to each other, expressed as a Model built using the Unified Modeling Language (UML).
-- A machine readable [Schema](https://github.com/Charles1625/crop-production-ontology/blob/main/Schema/Readme.md) based on the Model, against which datasets can be standardised so that they can be combined.
+- A machine readable [Schema](Schema/Readme.md) based on the Model, against which datasets can be standardised so that they can be combined.
 
 ## Scope
 
@@ -75,7 +75,7 @@ The simplest kind of Location is a point on the surface of the earth.  A Point h
 There is little opportunity for crop production on the anti-meridian (-180 and 180 longitude), or at the poles (-90 and 90 latitude), so Locations can 
 be set in a two-dimensional space.  Calculations of distances and thus areas will need to take account of latitude.
 
-A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude. Crops are assumed to be grown on the surface of the earth which is a plane, so altitude, if required can always be determined from existing geographical information systems.
+A number of geographical information systems give three co-ordinates for a point â€“ longitude, latitude and altitude. Crops are assumed to be grown on the surface of the earth which is a plane, so altitude, if required can always be determined from existing geographical information systems.
 
 ![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/path.puml)
 
@@ -111,7 +111,7 @@ e.g. the small green triangle in the map.
 In the map, there are three RegionParts of which one has two Holes.
 
 >This is a similar approach to that described in 
->[sub-section 2.7.2 of the Oracle Spatial and Graph Developer’s Guide – “Polygon with a Hole”](https://docs.oracle.com/database/121/SPATL/polygon-hole.htm#SPATL520 ),
+>[sub-section 2.7.2 of the Oracle Spatial and Graph Developerâ€™s Guide â€“ â€œPolygon with a Holeâ€](https://docs.oracle.com/database/121/SPATL/polygon-hole.htm#SPATL520 ),
 >(see the discussion about countries with lakes and islands in the lakes) except that the design of Region avoids the complication of
 >placing the co-ordinates of a polygon and its holes in the same list.
 
