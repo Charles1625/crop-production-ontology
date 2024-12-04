@@ -1,11 +1,11 @@
 # A Crop Production Ontology
 
 ## Introduction
-As for many domains, there will presently be a need for large datasets (Big Data) to assist the 
+As for many domains, there is a need for large datasets (Big Data) to assist the 
 development of machine-learning solutions for crop production. 
 Data in this domain currently exists in a wide range of formats, 
-including those managed by a variety of applications in use by farmers and growers. 
-The first step in building the necessary datasets will be to agree a standard ontology; the challenge is to create a 
+including those managed by a variety of applications in use by farmers and growers. Often, there is a need for these applications to integrate.
+The first step in building the necessary datasets and to achieve inter-application integration will be to agree a standard ontology; the challenge is to create a 
 common set of terms for describing crop production data that will apply to a wide range of crops and production methods,
 including those which might develop in the future.
 
@@ -42,14 +42,14 @@ to improve the granularity of the terms used.
 The sharing of this project through GitHub allows collaboration between domain experts (e.g. farmers, agronomists, crop scientists) and data 
 scientists who may raise Issues (see the menu), or may make a more hands-on contribution.  
 
->Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  Additionally, [PlantUML](https://plantuml.com/) is needed to modify, or contribute UML diagrams.
+>Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  [PlantUML](https://plantuml.com/) will be helpful to those wishing to modify, or contribute UML diagrams.
 
 Collaboration is needed both to improve and extend what is currently presented.
 
 ## Output
 The output of this project will be:
 - A formal description of terms and how they relate to each other, expressed as a Model built using the Unified Modeling Language (UML).
-- A machine readable [Schema](https://github.com/Charles1625/crop-production-ontology/blob/main/Schema/Readme.md) based on the Model, against which datasets can be standardised so that they can be combined.
+- A machine readable [Schema](Schema/Readme.md) based on the Model, against which datasets can be standardised so that they can be combined.
 
 ## Scope
 
@@ -68,63 +68,7 @@ because the meaning of the various symbols and text in the diagrams should becom
 > The display of UML diagrams in documents in this repository is unstable, because it relies on the PlantUML server which is sometimes too slow for the GitHub server.  If a diagram is not displayed, click on the hyperlink displayed in its place.  It may be necessary to make several attempts at this.
 
 ### Location
-![Point](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/point.puml)
-
-The simplest kind of Location is a point on the surface of the earth.  A Point has two Properties, Latitude and Longitude.  
-
-There is little opportunity for crop production on the anti-meridian (-180 and 180 longitude), or at the poles (-90 and 90 latitude), so Locations can 
-be set in a two-dimensional space.  Calculations of distances and thus areas will need to take account of latitude.
-
-A number of geographical information systems give three co-ordinates for a point – longitude, latitude and altitude. Crops are assumed to be grown on the surface of the earth which is a plane, so altitude, if required can always be determined from existing geographical information systems.
-
-![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/path.puml)
-
-A Path can be defined as an ordered list of two or more Waypoints, represented by a minimum of two Points.
-
-The use of a Path in this domain is limited, but might be of value for an observation made along a transect. 
-
-![Path](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/polygon.puml)
-
-By far the more common use of an ordered list of points will be a Polygon.  Here, a Point takes the role of Vertex of which there must be at least three.
-Tracing a series of points could result in crossed lines:
-
-![Self intersecting polygon](https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/self-intersecting-polygon.png)
-
-While mathematicians are happy to deal with self-intersecting polygons, it will be inconvenient in this domain.
-
-![Region](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/region.puml)
-
-A simple Polygon is not necessarily going to be sufficient to describe the kind of Region which a crop may occupy,
- or on which operations, or observations are made.  This is the kind of complex situation that can arise:
-
-![Complex field layout](https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/field-layout.png)
-
-The narrative for this map, involving five Polygons, might be:
->The field is divided into two parts by a track.  In the larger part there are two areas where the crop failed to establish, but, in one of these, a small patch of crop did establish.
-
-In crop production, a field is only one example of something that can have such a complex layout, so Region is suggested
-as a name for this.  In the above map, the Region has three green areas which can be referred to as RegionParts.  Their external
-boundaries are Polygons, but, in the case of the largest, there are Holes which are also Polygons.  A Hole belonging to
-one RegionPart can only exclude land from that RegionPart, thus allowing islands to be created by other RegionParts,
-e.g. the small green triangle in the map. 
-
-In the map, there are three RegionParts of which one has two Holes.
-
->This is a similar approach to that described in 
->[sub-section 2.7.2 of the Oracle Spatial and Graph Developer’s Guide – “Polygon with a Hole”](https://docs.oracle.com/database/121/SPATL/polygon-hole.htm#SPATL520 ),
->(see the discussion about countries with lakes and islands in the lakes) except that the design of Region avoids the complication of
->placing the co-ordinates of a polygon and its holes in the same list.
-
-![Location](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/location.puml)
-
-Aspects of crop production may relate to Point, Path, or Region and can be generalized as Location.  
-
-There may also be
-Locations where, although no co-ordinates are known, it is known that observations and operations have occurred there and it
-may also be known that such a Location is contained within another Location.  This would be the case in IT systems for arable farming
-that do not include any form of mapping.  Therefore, Locations will need to be linked to each other without recourse to geometry. 
-An UnmappedPath
-will have a Length and an UnmappedRegion will have an Area.
+Locations involved in crop production can take many forms.  A field may be represented as a polygon, possibly with holes (also polygons), or as a multipolygon.  Soil, or plants may be sampled at points and, in rare cases, transects across a field may need to be described.  All of these require co-ordinates, but it may not always be possible to obtain these, so locations also need to be given an identity.  Locations without co-ordinates can still be described in terms of their area and a possible set of locations that are contained within them.
 
 ### Batch
 
