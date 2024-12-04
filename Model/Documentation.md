@@ -66,14 +66,6 @@ An ingredient of a substance.
 ## Location
 A location on the Earth's surface with some relation to crop production.
 
-**Specializations**
-- [Path](#path)
-- [Point](#point)
-- [Region](#region)
-- [UnmappedPath](#unmappedpath)
-- [UnmappedPoint](#unmappedpoint)
-- [UnmappedRegion](#unmappedregion)
-
 |Associations| |
 |:------|:-------|
 |[Harvest](#harvest) at Location|Any number of harvests can be made at a location.|
@@ -92,7 +84,7 @@ An observation at a location related to crop production.
 **Associated with**
 - [Location](#location)
 
-## *Operation*
+## <a name=operation></a>*Operation*
 An operation at a location related to crop production.
 
 |Property| |
