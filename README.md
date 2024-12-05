@@ -65,10 +65,6 @@ This would exclude, for example, specific requirements for financial and stock c
 The following describes the thinking behind the [Model](Model/Documentation.md). 
 A set of UML diagrams are presented, each followed by a set of explanatory statements.  There is no need to make any special study of UML, 
 because the meaning of the various symbols and text in the diagrams should become obvious from the explanatory statements.
-> The display of UML diagrams in documents in this repository is unstable, because it relies on the PlantUML server which is sometimes too slow for the GitHub server.  If a diagram is not displayed, click on the hyperlink displayed in its place.  It may be necessary to make several attempts at this.
-
-### Location
-Locations involved in crop production can take many forms.  A field may be represented as a polygon, possibly with holes (also polygons), or as a multipolygon.  Soil, or plants may be sampled at points and, in rare cases, transects across a field may need to be described.  All of these require co-ordinates, but it may not always be possible to obtain these, so locations also need to be given an identity.  Locations without co-ordinates can still be described in terms of their area and a possible set of locations that are contained within them.
 
 ### Batch
 
@@ -109,6 +105,9 @@ for a sprayer, so Operation is an abstract class whose specializations will be d
 Operations may involve  the Application (spreading, or spraying) of Substances, such as pesticides, fertilizers and plant 
 growth regulators each of which will contain one, or more active Ingredients.  An agreed list of Substances and their Ingredients 
 will be required.
+
+### Location
+Locations involved in crop production can take many forms.  A field may be represented as a polygon, possibly with holes (also polygons), or as a multipolygon.  Soil, or plants may be sampled at points and, in rare cases, transects across a field may need to be described.  All of these require co-ordinates, but it may not always be possible to obtain these, so locations also need to be given an identity.  Locations without co-ordinates can still be described in terms of their area and a possible set of locations that are contained within them.
 
 
 
