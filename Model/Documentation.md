@@ -66,14 +66,6 @@ An ingredient of a substance.
 ## Location
 A location on the Earth's surface with some relation to crop production.
 
-**Specializations**
-- [Path](#path)
-- [Point](#point)
-- [Region](#region)
-- [UnmappedPath](#unmappedpath)
-- [UnmappedPoint](#unmappedpoint)
-- [UnmappedRegion](#unmappedregion)
-
 |Associations| |
 |:------|:-------|
 |[Harvest](#harvest) at Location|Any number of harvests can be made at a location.|
@@ -106,19 +98,6 @@ An operation at a location related to crop production.
 **Associated with**
 -[Location](#location)
 
-
-## Path
-A mapped path on the Earth's surface with some relation to crop production.
-|Method | |
-|:--------|:------|
-
-|Aggregation| |
-|:------------|:------------|
-|Path has [Point](#point)|A Path has an ordered set of at least two waypoints, represented as Points.|
-
-**Generalization**
-- [Location](#location)
-
 ## Planting
 Planting/sowing of a crop
 
@@ -131,34 +110,6 @@ Planting/sowing of a crop
 **Associated with**
 - [Batch](#batch)
 - [Crop](#crop)
-
-## Point 
-A point, with some relvance to crop production in a rectangle representing an Equirectangular projection of the Earth's surface.
-
-| Properties | |
-|:------------|:---------|
-|Latitude : number|the latitude of the Point expressed in decimal degrees to a precision of no more than 7 decimal places.|
-|Longitude : number|the longitude of the Point expressed in decimal degrees to a precision of no more than 7 decimal places.|
-
-**Aggregated by**
-- [Path](#path)
-- [Polygon](#polygon)
-
-**Generalization**
-- [Location](#location)
-
-## *Polygon*
-A non-self-intersecting polygon on the Earth's surface with some relation to crop production.
-
-|Aggregation| |
-|:-------------|:--------------|
-|Polygon has [Point](#point)|A polygon has an ordered set of at least three Vertices, represented as Points, such that no straight line between any two consecutive points is allowed to cross any other straight line between two consecutive points or between the first point and the last point.|
-
-**Member of**
-- [RegionPart](#regionpart)
-
-**Aggregated by**
-- [RegionPart](#regionpart)
 
 ## *Processing*
 Some processing of a batch of produce.
@@ -192,27 +143,6 @@ A purchase of produce (possibly as seed), or other movement of produce to a Batc
 
 **Associated with**
 - [Batch](#batch)
-
-## Region
-A mapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
-
-|Aggregation| |
-|:-----------|:------------|
-|Region has [RegionPart](#regionpart)|A Region must have at least one RegionPart.|
-
-**Generalization**
-- [Location](#location)
-
-## RegionPart
-A part of a Region.
-
-|Property| |
-|:--------|:-------|
-|ExternalBoundary : [Polygon](#polygon)|The external boundary of the part of the region.|
-
-|Aggregation| |
-|:---------|:-----------|
-|[Polygon](#polygon) excludes land from RegionPart|Any number of Holes, represented as Polygons, may exclude land from a RegionPart.|
 
 ## Row
 Row of crop within a pattern
@@ -272,31 +202,4 @@ Transfer of produce from one batch to another.
 
 **Associated with**
 - [Batch](#batch)
-
-## UnmappedPath
-An unmapped path on the Earth's surface with some relation to crop production.
-
-|Property| |
-|:-----------|:---------|
-|Length : number|Length of the unmapped path in metres.|
-
-**Generalization**
-- [Location](#location)
-
-## UnmappedPoint
-An unmapped point having some relevance to crop production.
-
-**Generalization**
-- [Location](#location)
-
-## UnmappedRegion
-An unmapped region of the Earth's surface with some relation to crop production which may consist of any number of non-contiguous parts.
-
-|Property| |
-|:--------|:--------|
-|Area : number|Area of the unmapped region in hectares.|
-
-**Generalization**
-- [Location](#location)
-
 

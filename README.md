@@ -40,9 +40,9 @@ to improve the granularity of the terms used.
 
 ## Collaboration
 The sharing of this project through GitHub allows collaboration between domain experts (e.g. farmers, agronomists, crop scientists) and data 
-scientists who may raise Issues (see the menu), or may make a more hands-on contribution.  
+scientists, who may raise Issues (see the menu), or may make a more hands-on contribution.  
 
->Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  [PlantUML](https://plantuml.com/) will be helpful to those wishing to modify, or contribute UML diagrams.
+>Those wishing to do the latter will need to be, or become familiar with the [GitHub process](https://github.com/firstcontributions/first-contributions) and [Markdown](https://www.markdownguide.org/getting-started/).  [PlantUML](https://plantuml.com/) will be helpful to those wishing to modify, or contribute UML diagrams, or to modify the Definitive Model.
 
 Collaboration is needed both to improve and extend what is currently presented.
 
@@ -62,24 +62,38 @@ This would exclude, for example, specific requirements for financial and stock c
 
 
 ## Development of the Model
-The following describes the thinking behind the [Model](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/Documentation.md). 
+The following describes the thinking behind the [Model](Model/Documentation.md). 
 A set of UML diagrams are presented, each followed by a set of explanatory statements.  There is no need to make any special study of UML, 
 because the meaning of the various symbols and text in the diagrams should become obvious from the explanatory statements.
-> The display of UML diagrams in documents in this repository is unstable, because it relies on the PlantUML server which is sometimes too slow for the GitHub server.  If a diagram is not displayed, click on the hyperlink displayed in its place.  It may be necessary to make several attempts at this.
+
+### Observations and Operations
+![Observation](Diagrams/obs-op.png)
+
+An Observation is made at a Location.  The data observed will vary depending on the type of
+Observation, so it will be an abstract, generalizing class whose specializations will need to be determined following
+consultation with domain experts.
+
+An Operation is performed at a Location, usually involving some kind of machine, or tool.  The settings of this machine will be
+relevant, but the type of setting will vary according to machine; examples might be depth for a cultivator and volume per acre
+for a sprayer, so Operation is an abstract class whose specializations will be determined in consultation with domain experts.
+
+Operations may involve  the Application (spreading, or spraying) of Substances, such as pesticides, fertilizers and plant 
+growth regulators each of which will contain one, or more active Ingredients.  An agreed list of Substances and their Ingredients 
+will be required.
 
 ### Location
 Locations involved in crop production can take many forms.  A field may be represented as a polygon, possibly with holes (also polygons), or as a multipolygon.  Soil, or plants may be sampled at points and, in rare cases, transects across a field may need to be described.  All of these require co-ordinates, but it may not always be possible to obtain these, so locations also need to be given an identity.  Locations without co-ordinates can still be described in terms of their area and a possible set of locations that are contained within them.
 
 ### Batch
 
-![Produce and Batch](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/batch-produce.puml)
+![Produce and Batch](Diagrams/batch-produce.png)
 
 A Batch is of a particular kind of Produce and there may be several Batches of any Produce.
 
 Produce is identified by species, variety (cultivar) and the part of the plant, such as grain, 
 or straw.  An agreed list of names (enumeration) for each of these three things will be required.
 
-![Batch and events](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/batch-events.puml)
+![Batch and events](Diagrams/batch-events.png)
 Harvests will take place into Batches and will be at a Location.
 
 Material from a Batch may also be used as seed, or other propagative material, and the history of that material may 
@@ -95,20 +109,6 @@ to, or from the production unit) may occur.
 
 Processing and Test are classes that will require specialization.
 
-### Observations and Operations
-![Observation](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Diagrams/obs-op.puml)
-
-An Observation is made at a Location.  The data observed will vary depending on the type of
-Observation, so it will be an abstract, generalizing class whose specializations will need to be determined following
-consultation with domain experts.
-
-An Operation is performed at a Location, usually involving some kind of machine, or tool.  The settings of this machine will be
-relevant, but the type of setting will vary according to machine; examples might be depth for a cultivator and volume per acre
-for a sprayer, so Operation is an abstract class whose specializations will be determined in consultation with domain experts.
-
-Operations may involve  the Application (spreading, or spraying) of Substances, such as pesticides, fertilizers and plant 
-growth regulators each of which will contain one, or more active Ingredients.  An agreed list of Substances and their Ingredients 
-will be required.
 
 
 

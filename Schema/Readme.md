@@ -1,12 +1,12 @@
 # Introduction to the Schema
 It is proposed that data should be shared in JavaScript Object Notation (JSON), so a 
-[JSON Schema](https://github.com/Charles1625/crop-production-ontology/blob/main/Schema/crop-production.json) (see 
+[JSON Schema](crop-production.json) (see 
 [json-schema.org](json-schema.org)) is being developed.  This schema references other schema files in this repository.
 
 The current version still requires some testing.
 
 ## Methodology
-The Schema is based on the [UML Model](https://github.com/Charles1625/crop-production-ontology/blob/main/Model/Documentation.md).  The following describes the general approach taken when mapping from UML to JSON
+The Schema is based on the [UML Model](Model/Documentation.md).  The following describes the general approach taken when mapping from UML to JSON
 Schema and any exceptions made.
 
 ### Names
@@ -15,12 +15,8 @@ JSON names are in lower case only.  Where names are a combination of words, the 
 ### Classes
 Each class that is not a specialization of another class is represented as an `object` of the same name in the definitions, with the exception of: 
 - Substance whose schema is in substance.json, because there are likely 
-to be a large number of items in the name enumeration.  Ingredient is also to be found in substance.json.
+to be a large number of items in the `name` enumeration.  Ingredient is also to be found in `substance.json`.
 - Row which is incorporated into the Crop class.
-
-Classes which are specializations are represented as objects, with the same name as the specialization class, containing only the properties which are not in the generalization, but with an addtional property, "class", which is a `const` evaluating to the class name. 
-
-The Point class is an exception.  When it is used as a waypoint in Path, or a vertex in Polygon, it is reduced to a tuple to make conformant JSON documents less verbose. 
 
 The main part of the schema is an object with two properties, `locations` and `batches` which are arrays of `location` and `batch`, 
 respectively.
@@ -28,21 +24,10 @@ respectively.
 ### Properties
 Properties are represented as `properties` of the relevant `object`.
 
-### Generalization-Specialization
-For a generalizing class, one of the `properties` has the same name as the class, and references to the specializations (see above) are included 
-in the list following a `oneOf` keyword for this property.  The following example of the contents of a JSON file, in which there is only one Location, a Point, and no Batches, illustrates how generalization-specialization works:
-~~~
-"locations": [
-	{
-		"location": {
-			"class": "point",
-			"latitude": 50.1032016, 
-			"longitude": -5.1144506
-		}
-	}
-],
-"batches": []
-~~~
+### Generalization and Specialization
+For a generalizing class, one of the `properties` has the same name as the class, and references to the specializations are included in the list following a `oneOf` keyword for this property.
+
+Classes which are specializations are represented as objects, with the same name as the specialization class, containing only the properties which are not in the generization, but with an additional property "class", which is a `const` evaluating to the classs name.
 
 ### Relationships
 An aggregation, or a zero-to-many association becomes a `property` of `type` `array` of the aggregating `object` with the plural of the name of the aggregated objects, or where appropriate their role. 
@@ -67,13 +52,16 @@ Types are mapped from the UML model to the JSON schema as follows:
 |datetime|`string` with `format` as `date-time`|
 |enumeration|`string` with `enum`|
 
+## GeoJSONhttps://datatracker.ietf.org/doc/html/rfc7946)
+The [GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946) Feature object includes the appropriate co-ordinates for the geometry of a location.  It also allows for a null geometry and has an id, both of which are suitable for locations with no co-ordinates.  It is therefore referenced within the location object in the Schema.
+
 ## View of structure
 
 A UML diagram is presented below to illustrate the schema, preceded by a key showing how to read the UML with specific relation to the JSON schema.
 
-![Key](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Schema/key.puml)
+![Key](key.png)
 
-![Schema](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.github.com/Charles1625/crop-production-ontology/main/Schema/schema.puml)
+![Schema](schema.png)
 
 
 
