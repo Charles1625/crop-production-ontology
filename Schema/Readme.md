@@ -1,6 +1,6 @@
 # Introduction to the Schema
 It is proposed that data should be shared in JavaScript Object Notation (JSON), so a 
-[JSON Schema](Schema/crop-production.json) (see 
+[JSON Schema](crop-production.json) (see 
 [json-schema.org](json-schema.org)) is being developed.  This schema references other schema files in this repository.
 
 The current version still requires some testing.
@@ -13,34 +13,16 @@ Schema and any exceptions made.
 JSON names are in lower case only.  Where names are a combination of words, the words are separated by hyphens.
 
 ### Classes
-Each class that is not a specialization of another class is represented as an `object` of the same name in the definitions, with the exception of: 
+Each class is represented as an `object` of the same name in the definitions, with the exception of: 
 - Substance whose schema is in substance.json, because there are likely 
-to be a large number of items in the name enumeration.  Ingredient is also to be found in substance.json.
+to be a large number of items in the `name` enumeration.  Ingredient is also to be found in `substance.json`.
 - Row which is incorporated into the Crop class.
-
-Classes which are specializations are represented as objects, with the same name as the specialization class, containing only the properties which are not in the generalization, but with an addtional property, "class", which is a `const` evaluating to the class name. 
 
 The main part of the schema is an object with two properties, `locations` and `batches` which are arrays of `location` and `batch`, 
 respectively.
 
 ### Properties
 Properties are represented as `properties` of the relevant `object`.
-
-### Generalization-Specialization
-For a generalizing class, one of the `properties` has the same name as the class, and references to the specializations (see above) are included 
-in the list following a `oneOf` keyword for this property.  The following example of the contents of a JSON file, in which there is only one Location, a Point, and no Batches, illustrates how generalization-specialization works:
-~~~
-"locations": [
-	{
-		"location": {
-			"class": "point",
-			"latitude": 50.1032016, 
-			"longitude": -5.1144506
-		}
-	}
-],
-"batches": []
-~~~
 
 ### Relationships
 An aggregation, or a zero-to-many association becomes a `property` of `type` `array` of the aggregating `object` with the plural of the name of the aggregated objects, or where appropriate their role. 
@@ -65,16 +47,16 @@ Types are mapped from the UML model to the JSON schema as follows:
 |datetime|`string` with `format` as `date-time`|
 |enumeration|`string` with `enum`|
 
-## GeoJSON
-The co-ordinates etc. for locations follow the 
+## GeoJSONhttps://datatracker.ietf.org/doc/html/rfc7946)
+The [GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946) Feature object includes the appropriate co-ordinates for the geometry of a location.  It also allows for a null geometry and has an id, both of which are suitable for locations with no co-ordinates.  It is therefore referenced within the location object in the Schema.
 
 ## View of structure
 
 A UML diagram is presented below to illustrate the schema, preceded by a key showing how to read the UML with specific relation to the JSON schema.
 
-![Key](Schema/key.png)
+![Key](key.png)
 
-![Schema](Schema/schema.png)
+![Schema](schema.png)
 
 
 
