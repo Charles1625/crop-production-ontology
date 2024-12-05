@@ -13,7 +13,7 @@ Schema and any exceptions made.
 JSON names are in lower case only.  Where names are a combination of words, the words are separated by hyphens.
 
 ### Classes
-Each class is represented as an `object` of the same name in the definitions, with the exception of: 
+Each class that is not a specialization of another class is represented as an `object` of the same name in the definitions, with the exception of: 
 - Substance whose schema is in substance.json, because there are likely 
 to be a large number of items in the `name` enumeration.  Ingredient is also to be found in `substance.json`.
 - Row which is incorporated into the Crop class.
@@ -23,6 +23,11 @@ respectively.
 
 ### Properties
 Properties are represented as `properties` of the relevant `object`.
+
+### Generalization and Specialization
+For a generalizing class, one of the `properties` has the same name as the class, and references to the specializations are included in the list following a `oneOf` keyword for this property.
+
+Classes which are specializations are represented as objects, with the same name as the specialization class, containing only the properties which are not in the generization, but with an additional property "class", which is a `const` evaluating to the classs name.
 
 ### Relationships
 An aggregation, or a zero-to-many association becomes a `property` of `type` `array` of the aggregating `object` with the plural of the name of the aggregated objects, or where appropriate their role. 
