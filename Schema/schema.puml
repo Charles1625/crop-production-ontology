@@ -24,8 +24,8 @@ Schema "1" o-- "0..*" location
 
 class "GeoJSON Feature" as feature
 
-location *-- "location" feature
-location "1" o-- "0..* contains" feature
+location *-- "feature" feature
+location "1" o-- "0..1 part-of" feature
 
 class transfer {
 date-time

@@ -133,12 +133,8 @@
 			"description": "A location on the Earth's surface with some relation to crop production.",
 			"type": "object",
 			"properties": {
-				"location" : { "$ref": "https://geojson.org/schema/Feature.json" },
-				"contains": {
-					"description": "Locations contained within this Location.",
-					"type": "array",
-					"items": { "$ref": "https://geojson.org/schema/Feature.json" }
-				},
+				"feature" : { "$ref": "https://geojson.org/schema/Feature.json" },
+				"part-of": { "$ref": "https://geojson.org/schema/Feature.json" },
 				"area": {
 					"description": "Area of the unmapped region in hectares.",
 					"type": "number",
