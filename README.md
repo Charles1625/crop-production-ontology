@@ -82,7 +82,7 @@ growth regulators each of which will contain one, or more active Ingredients.  A
 will be required.
 
 ### Location
-Locations involved in crop production can take many forms.  A field may be represented as a polygon, possibly with holes (also polygons), or as a multipolygon.  Soil, or plants may be sampled at points and, in rare cases, transects across a field may need to be described.  All of these require co-ordinates, but it may not always be possible to obtain these, so locations also need to be given an identity.  Locations without co-ordinates can still be described in terms of their area and a possible set of locations that are contained within them.
+Locations involved in crop production can take many forms.  A field may be represented as a polygon, possibly with holes (also polygons), or as a multipolygon.  Soil, or plants may be sampled at points and, in rare cases, transects across a field may need to be described.  All of these require co-ordinates, but it may not always be possible to obtain these, so locations also need to be given an identity.  Locations without co-ordinates can still be described in terms of their area and another location of which they are a part.
 
 ### Batch
 
