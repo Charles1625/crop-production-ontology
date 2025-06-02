@@ -1,7 +1,7 @@
 # Introduction to the Schema
 It is proposed that data should be shared in JavaScript Object Notation (JSON), so a 
 [JSON Schema](crop-production.json) (see 
-[json-schema.org](json-schema.org)) is being developed.  This schema references other schema files in this repository.
+[json-schema.org](json-schema.org)) is being developed.  This schema references other schema files in this repository and a [GeoJSON](geosjson.org)  schema.
 
 The current version still requires some testing.
 
