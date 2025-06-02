@@ -6,7 +6,7 @@ It is proposed that data should be shared in JavaScript Object Notation (JSON), 
 The current version still requires some testing.
 
 ## Methodology
-The Schema is based on the [UML Model](Model/Documentation.md).  The following describes the general approach taken when mapping from UML to JSON
+The Schema is based on the [UML Model](../Model/Documentation.md).  The following describes the general approach taken when mapping from UML to JSON
 Schema and any exceptions made.
 
 ### Names
