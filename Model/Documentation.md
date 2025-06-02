@@ -96,7 +96,7 @@ An operation at a location related to crop production.
 |Operation applies [Substance](#substance)|An Operation may apply any number of different substances.|
 
 **Associated with**
--[Location](#location)
+- [Location](#location)
 
 ## Planting
 Planting/sowing of a crop
