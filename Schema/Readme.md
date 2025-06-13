@@ -52,7 +52,7 @@ Types are mapped from the UML model to the JSON schema as follows:
 |datetime|`string` with `format` as `date-time`|
 |enumeration|`string` with `enum`|
 
-## GeoJSON
+### GeoJSON
 
 The [GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946) Feature object includes the appropriate co-ordinates for the geometry of a location.  It also allows for a null geometry and has an id, both of which are suitable for locations with no co-ordinates.  It is therefore referenced within the location object in the Schema.
 
